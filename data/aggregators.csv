@@ -1,4 +1,4 @@
-﻿id,link
-sinspired_cm,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/cm.txt
-sinspired_col,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/col.txt
-sinspired_scan,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/scan.txt
+﻿id,link,success_rate,last_count,avg_count,last_run_at
+sinspired_scan,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/scan.txt,1/1,20,20.0,2026-08-20
+sinspired_col,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/col.txt,1/1,17,17.0,2026-08-20
+sinspired_cm,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/cm.txt,1/1,12,12.0,2026-08-20
