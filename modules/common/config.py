@@ -19,8 +19,9 @@ ENV_PREFIX = "SQM_"
 SUPPORTED_PROTOCOLS = ("vless", "vmess", "trojan", "ss", "hysteria2")
 SUPPORTED_FORMATS = ("clash", "v2ray", "plain")
 
-# 模板占位符白名单全集（代码内固定，映射关系见 fetcher.subscription.PLACEHOLDER_FORMATS）
-KNOWN_PLACEHOLDERS = ("{Y}", "{m}", "{mm}", "{d}", "{dd}", "{Ymd}")
+# 模板占位符白名单全集（代码内固定，映射关系见 fetcher.subscription.placeholder_values）
+# 注意 {ymd} 是 {Ymd} 的小写变体，填充值相同（如 20260820）
+KNOWN_PLACEHOLDERS = ("{Y}", "{m}", "{mm}", "{d}", "{dd}", "{Ymd}", "{ymd}")
 
 # 协议 → 安全规则 ID 映射（规则完整性校验用）
 PROTOCOL_SECURITY_RULE = {

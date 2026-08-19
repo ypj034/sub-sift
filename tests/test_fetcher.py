@@ -19,6 +19,7 @@ def test_placeholder_values():
         "{d}": "20",
         "{dd}": "20",
         "{Ymd}": "20260820",
+        "{ymd}": "20260820",
     }
 
 

@@ -3,7 +3,7 @@
 模板处理（DESIGN.md §8）：模板原串 = 身份（用于匹配统计），填充后 URL = 仅访问用。
 
 占位符 → 日期片段 映射为代码内固定标准（不进 config）：
-{Y}=2026  {m}=8  {mm}=08  {d}=20  {dd}=20  {Ymd}=20260820
+{Y}=2026  {m}=8  {mm}=08  {d}=20  {dd}=20  {Ymd}=20260820  {ymd}=20260820（{Ymd} 的小写变体）
 """
 from __future__ import annotations
 
@@ -28,6 +28,7 @@ def placeholder_values(today: date) -> dict[str, str]:
         "{d}": f"{today.day}",
         "{dd}": f"{today.day:02d}",
         "{Ymd}": today.strftime("%Y%m%d"),
+        "{ymd}": today.strftime("%Y%m%d"),
     }
 
 
