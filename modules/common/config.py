@@ -244,8 +244,8 @@ def _validate(raw: dict) -> Config:
         kw_cfg = rules.get("junk_keywords", {})
         if kw_cfg.get("enabled", True):
             keywords = kw_cfg.get("keywords", [])
-            if not isinstance(keywords, list) or not keywords:
-                err("rules.junk_keywords.keywords 不能为空（关键词过滤启用时）")
+            if not isinstance(keywords, list):
+                err("rules.junk_keywords.keywords 必须是列表（留空 [] = 启用规则但不过滤）")
 
     # output
     output = raw.get("output", {})

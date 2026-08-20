@@ -5,6 +5,7 @@ DESIGN.md §9：产物需可被 substore 订阅，输出通用订阅格式。
 from __future__ import annotations
 
 import base64
+import ipaddress
 import json
 import os
 import urllib.parse
@@ -102,9 +103,21 @@ def to_plain_text(nodes: list[Node]) -> str:
     return "\n".join(lines) + ("\n" if lines else "")
 
 
+def _host(server: str) -> str:
+    """URL 中 server 的表示：IPv6 地址必须用方括号包裹，否则 :port 会被误切。"""
+    if ":" in server:
+        try:
+            if ipaddress.ip_address(server).version == 6:
+                return f"[{server}]"
+        except ValueError:
+            pass
+    return server
+
+
 def node_to_uri(node: Node) -> str:
     raw = node.raw or {}
     name = urllib.parse.quote(node.name, safe="")
+    host = _host(node.server)
     if node.protocol == "vmess":
         data = {
             "v": "2",
@@ -140,7 +153,7 @@ def node_to_uri(node: Node) -> str:
             params.append(f"sid={raw['sid']}")
         params.append("type=tcp")
         return (
-            f"vless://{raw.get('uuid', '')}@{node.server}:{node.port}"
+            f"vless://{raw.get('uuid', '')}@{host}:{node.port}"
             f"?{'&'.join(params)}#{name}"
         )
     if node.protocol == "trojan":
@@ -152,20 +165,20 @@ def node_to_uri(node: Node) -> str:
         else:
             params.append("allowInsecure=0")
         return (
-            f"trojan://{raw.get('password', '')}@{node.server}:{node.port}"
+            f"trojan://{raw.get('password', '')}@{host}:{node.port}"
             f"?{'&'.join(params)}#{name}"
         )
     if node.protocol == "ss":
         method = raw.get("method", "")
         password = raw.get("password", "")
         userinfo = base64.b64encode(f"{method}:{password}".encode("utf-8")).decode("ascii")
-        return f"ss://{userinfo}@{node.server}:{node.port}#{name}"
+        return f"ss://{userinfo}@{host}:{node.port}#{name}"
     if node.protocol == "hysteria2":
         params = [f"insecure={'1' if raw.get('insecure') else '0'}"]
         if raw.get("sni"):
             params.append(f"sni={raw['sni']}")
         return (
-            f"hysteria2://{raw.get('password', '')}@{node.server}:{node.port}"
+            f"hysteria2://{raw.get('password', '')}@{host}:{node.port}"
             f"?{'&'.join(params)}#{name}"
         )
     return ""

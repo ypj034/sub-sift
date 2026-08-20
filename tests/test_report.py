@@ -149,6 +149,8 @@ def test_generate_report_structure(tmp_path):
     assert content.index("| validity |") < content.index("| security_vless |")
     assert "validity_target" not in content
     assert "validity_fields" not in content
+    # 合计行 = 所有规则拒绝数之和（3 + 1）
+    assert "| **合计** | **4** |" in content
 
     # 主清单：无 total 列、无重叠度章节、标题正确
     assert "total" not in content

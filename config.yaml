@@ -77,8 +77,9 @@ rules:
     enabled: true
     # 垃圾关键词，匹配节点名 name 与服务器地址 server；可按需增删
     # 注意保守使用，避免误伤："机场""专线""IPLC""BGP" 等线路术语不应加入
+    # 留空 [] = 不过滤（默认）；不要写 [null]，YAML 会把它解析成 None，规则层会忽略
     # keywords: [free, test, demo, example, invalid, null, undefined, 免费, 测试, 演示, 广告, 优惠, 官网, 购买, 试用]
-    keywords: [null]
+    keywords: []
 
   region_allowlist:
     enabled: true

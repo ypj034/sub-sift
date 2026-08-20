@@ -40,6 +40,7 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
         lines.append("|---|---|")
         for rule_id, count in rows:
             lines.append(f"| {rule_id} | {count} |")
+        lines.append(f"| **合计** | **{sum(count for _, count in rows)}** |")
     else:
         lines.append("（本轮无节点被规则拒绝）")
     if stats.errors:

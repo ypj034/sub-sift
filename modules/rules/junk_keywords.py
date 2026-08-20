@@ -15,7 +15,15 @@ class JunkKeywordsRule(Rule):
     category = RuleCategory.JUNK
 
     def __init__(self, keywords: list[str]) -> None:
-        self._keywords = [str(k).lower() for k in keywords if str(k).strip()]
+        # 防御：YAML 的 [null] 会解析为 [None]，若直接 str(None) 会得到 "none"
+        # 成为真实关键词；空值/None 一律视为"无此关键词"
+        self._keywords = []
+        for k in keywords or []:
+            if k is None:
+                continue
+            s = str(k).strip()
+            if s:
+                self._keywords.append(s.lower())
 
     def evaluate(self, node: Node) -> RuleResult:
         if not self._keywords:

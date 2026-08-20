@@ -68,6 +68,20 @@ def test_validity_fields_password():
     assert rule.evaluate(node(protocol="ss", raw={"method": "", "password": "x"})).rejected
 
 
+def test_validity_fields_jamming_marker():
+    """伊朗反 v2ray 干扰标记（密码内嵌 banv2ray）必须 REJECT。"""
+    rule = ValidityFieldsRule()
+    for proto in ("trojan", "hysteria2", "ss"):
+        bad = node(protocol=proto, raw={"password": "-----------BanV2ray-----------", "method": "aes-128-gcm"})
+        assert rule.evaluate(bad).rejected
+    # 大小写不敏感
+    mixed = node(protocol="trojan", raw={"password": "xx-banv2ray-yy"})
+    assert rule.evaluate(mixed).rejected
+    # 正常密码不受影响
+    ok = node(protocol="trojan", raw={"password": "normal-password-123"})
+    assert rule.evaluate(ok).rejected is False
+
+
 def test_security_vmess():
     rule = SecurityVmessRule()
     ok = node(protocol="vmess", raw={"cipher": "auto", "tls": True})
@@ -124,6 +138,14 @@ def test_junk_keywords():
     assert rule.evaluate(node(name="free-test")).rejected
     assert rule.evaluate(node(server="freecdn.example.com")).rejected
     assert rule.evaluate(node(name="香港 01", server="hk01.example.com")).rejected is False
+
+
+def test_junk_keywords_null_config_no_filter():
+    """config 留空 [] 或误写 [null] 都不得产生 'none' 关键词。"""
+    empty = JunkKeywordsRule([])
+    null_entry = JunkKeywordsRule([None])
+    assert empty.evaluate(node(name="none-named-node")).rejected is False
+    assert null_entry.evaluate(node(name="none-named-node")).rejected is False
 
 
 class _FakeGeoIP:
