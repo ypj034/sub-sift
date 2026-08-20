@@ -1,196 +1,196 @@
 # sub-sift 运行报告
 
-- 运行时间: 2026-08-20 14:15:03 CST
+- 运行时间: 2026-08-20 14:52:56 CST
 - 主清单订阅链接数: 177
 - 本次实际拉取: 168（冷却/禁用跳过: 9）
-- 拉取成功: 153，失败: 15
-- 有效节点数（筛选后去重前）: 24368
-- 输出节点数（去重后）: 10164
+- 拉取成功: 167，失败: 1
+- 有效节点数（筛选后去重前）: 56643
+- 输出节点数（去重后）: 12506
 - GeoIP 数据源: mmdb: data/GeoLite2-Country.mmdb
-- 输出文件: output\v2ray.txt, output\plain.txt
+- 输出文件: output/v2ray.txt, output/plain.txt
 
 ## 规则计数器
 | 规则 | 拒绝数 |
 |---|---|
-| protocol_allowlist | 14054 |
-| validity | 2157 |
-| security_vmess | 10410 |
-| security_vless | 34614 |
-| security_trojan | 18975 |
-| region_allowlist | 36843 |
-| **合计** | **117053** |
+| protocol_allowlist | 30629 |
+| validity | 5429 |
+| security_vmess | 24455 |
+| security_vless | 70715 |
+| security_trojan | 28804 |
+| region_allowlist | 73962 |
+| **合计** | **233994** |
 
 ## 主清单（active → 冷却 → disabled；组内按 avg 降序）
 | link | 状态 | success_rate | last | avg |
 |---|---|---|---|---|
-| https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/refs/heads/main/all_extracted_configs.txt | active | 4/5 | 0 | 8647.4 |
-| https://raw.githubusercontent.com/DukeMehdi/FreeList-V2ray-Configs/refs/heads/main/Configs/VLESS-DukeMehdi-Configs.txt | active | 3/5 | 0 | 4234.2 |
-| https://raw.githubusercontent.com/DukeMehdi/FreeList-V2ray-Configs/refs/heads/main/Configs/TROJAN-DukeMehdi-Configs.txt | active | 5/5 | 3739 | 3839.0 |
-| https://raw.githubusercontent.com/mheidari98/.proxy/main/all | active | 3/5 | 0 | 3210.6 |
-| https://raw.githubusercontent.com/sakha1370/OpenRay/main/output/all_valid_proxies.txt | active | 4/5 | 3350 | 2727.8 |
-| https://raw.githubusercontent.com/sevcator/5ubscrpt10n/main/mini/m1n1-5ub-14.txt | active | 5/5 | 2341 | 2338.6 |
-| https://raw.githubusercontent.com/xiaoji235/airport-free/refs/heads/main/v2ray/clashnodecc.txt | active | 5/5 | 2187 | 2188.0 |
-| https://raw.githubusercontent.com/xiaoji235/airport-free/main/v2ray.txt | active | 4/5 | 0 | 1752.2 |
-| https://raw.githubusercontent.com/liMilCo/v2r/main/configs.txt | active | 5/5 | 1610 | 1748.2 |
-| https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt | active | 4/5 | 1615 | 1319.6 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/soroushmirzaei.yaml | active | 4/5 | 1458 | 1160.4 |
-| https://raw.githubusercontent.com/Leon406/SubCrawler/master/sub/share/vless | active | 4/5 | 1110 | 858.6 |
-| https://raw.githubusercontent.com/sevcator/5ubscrpt10n/main/mini/m1n1-5ub-19.txt | active | 3/5 | 0 | 775.0 |
-| https://clashgithub.com/wp-content/uploads/rss/{Ymd}.txt | active | 5/5 | 639 | 640.8 |
-| https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml | active | 5/5 | 542 | 542.0 |
-| https://raw.githubusercontent.com/asgharkapk/Sub-Config-Extractor/main/output_configs/mixed/Leon406/SubCrawler/sub/share/a11.yaml | active | 5/5 | 441 | 441.0 |
-| https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-JP.txt | active | 5/5 | 378 | 424.0 |
-| https://clashbest.github.io/uploads/{Y}/{mm}/2-{Ymd}.txt | active | 1/5 | 0 | 364.8 |
-| https://mihomoparty.github.io/uploads/{Y}/{mm}/2-{Ymd}.txt | active | 1/5 | 0 | 364.8 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/anaer.yaml | active | 5/5 | 357 | 354.6 |
-| https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml | active | 5/5 | 349 | 351.4 |
-| https://node.freeclashnode.com/uploads/{Y}/{mm}/2-{Ymd}.yaml | active | 5/5 | 297 | 297.0 |
-| https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml | active | 4/5 | 0 | 281.6 |
-| https://mihomoparty.github.io/uploads/{Y}/{mm}/4-{Ymd}.txt | active | 2/5 | 623 | 249.2 |
-| https://raw.githubusercontent.com/free-nodes/clashfree/main/clash{Ymd}.yml | active | 5/5 | 0 | 237.6 |
-| https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/Clash.yaml | active | 5/5 | 229 | 229.0 |
-| https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-SG.txt | active | 5/5 | 223 | 224.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/coldwater-10.yaml | active | 5/5 | 199 | 199.0 |
-| https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml | active | 4/5 | 0 | 184.0 |
-| https://raw.githubusercontent.com/liMilCo/v2r/main/base64/2.txt | active | 5/5 | 161 | 183.8 |
-| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/main/APIs/sc2.yaml | active | 4/5 | 195 | 156.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/trial.yaml | active | 5/5 | 155 | 154.6 |
-| https://raw.githubusercontent.com/F0rc3Run/F0rc3Run/refs/heads/main/splitted-by-protocol/trojan.txt | active | 5/5 | 151 | 153.8 |
-| https://raw.githubusercontent.com/barry-far/V2ray-config/main/Sub2.txt | active | 5/5 | 141 | 150.0 |
-| https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/main/sub.txt | active | 5/5 | 134 | 133.8 |
-| https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-US.txt | active | 5/5 | 144 | 128.2 |
-| https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-HK.txt | active | 5/5 | 128 | 127.6 |
-| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc2.yaml | active | 3/5 | 0 | 117.0 |
-| https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector/main/sub/mix | active | 4/5 | 0 | 109.4 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/_previous.yaml | active | 5/5 | 108 | 108.0 |
-| https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix | active | 5/5 | 78 | 77.4 |
-| https://raw.githubusercontent.com/ts-sf/fly/main/clash | active | 5/5 | 70 | 74.4 |
-| https://github.com/crackbest/V2ray-Config/raw/refs/heads/main/config.txt | active | 4/5 | 76 | 60.4 |
-| https://raw.githubusercontent.com/crackbest/V2ray-Config/refs/heads/main/config.txt | active | 4/5 | 76 | 60.4 |
-| https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Base64/BLACK_VLESS_RUS_mobile_base64.txt | active | 5/5 | 57 | 53.6 |
-| https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt | active | 5/5 | 57 | 53.6 |
-| https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Base64/BLACK_VLESS_RUS_base64.txt | active | 4/5 | 70 | 50.2 |
-| https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS.txt | active | 4/5 | 70 | 50.2 |
-| https://raw.githubusercontent.com/ts-sf/fly/main/v2 | active | 5/5 | 45 | 47.4 |
-| https://raw.githubusercontent.com/hans-thomas/v2ray-subscription/refs/heads/master/servers.txt | active | 5/5 | 47 | 47.0 |
-| https://raw.githubusercontent.com/Arefgh72/v2ray-proxy-pars-tester/main/output/github_all.txt | active | 5/5 | 46 | 46.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/clashfree.yaml | active | 4/5 | 56 | 44.8 |
-| https://raw.githubusercontent.com/F0rc3Run/F0rc3Run/refs/heads/main/splitted-by-protocol/vless.txt | active | 5/5 | 38 | 40.8 |
-| https://raw.githubusercontent.com/acymz/AutoVPN/main/data/V2.txt | active | 5/5 | 41 | 39.2 |
-| https://raw.githubusercontent.com/LoneKingCode/free-proxy-db/main/proxies/all.txt | active | 5/5 | 27 | 26.4 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/snakem982.yaml | active | 5/5 | 27 | 26.2 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/zhangkaiitugithub.yaml | active | 5/5 | 27 | 26.2 |
-| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/blues.txt | active | 5/5 | 26 | 26.0 |
-| https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml | active | 5/5 | 22 | 22.0 |
-| https://clashbest.github.io/uploads/{Y}/{mm}/0-{Ymd}.txt | active | 2/5 | 51 | 20.4 |
-| https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-KR.txt | active | 5/5 | 20 | 18.4 |
-| https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml | active | 5/5 | 12 | 17.4 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/yudou.yaml | active | 5/5 | 17 | 17.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/aiboboxx.yaml | active | 5/5 | 17 | 16.6 |
-| https://raw.githubusercontent.com/PangTouY00/Auto_proxy/main/Long_term_subscription_num | active | 5/5 | 16 | 16.4 |
-| https://www.xrayvip.com/free.txt | active | 5/5 | 15 | 16.2 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/tssf.yaml | active | 5/5 | 16 | 16.0 |
-| https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/refs/heads/master/Eternity.txt | active | 5/5 | 15 | 15.0 |
-| https://raw.githubusercontent.com/justVisiting992/xray-Config-Collector/main/clash.yaml | active | 5/5 | 15 | 14.8 |
-| https://raw.githubusercontent.com/ovmvo/SubShare/main/sub/permanent/mihomo.yaml | active | 5/5 | 14 | 14.0 |
-| https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml | active | 5/5 | 16 | 13.4 |
-| https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml | active | 5/5 | 16 | 13.4 |
-| https://clashbest.github.io/uploads/{Y}/{mm}/1-{Ymd}.txt | active | 1/5 | 0 | 12.2 |
-| https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/v2ray/subs/sub2.txt | active | 5/5 | 12 | 12.0 |
-| https://raw.githubusercontent.com/ggborr/FREEE-VPN/main/3v2 | active | 5/5 | 9 | 9.0 |
-| https://raw.githubusercontent.com/mgit0001/test_clash/main/heima.txt | active | 5/5 | 8 | 8.0 |
-| https://raw.githubusercontent.com/mgit0001/test_clash/refs/heads/main/heima.txt | active | 5/5 | 8 | 8.0 |
-| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/ndnode.txt | active | 5/5 | 7 | 7.0 |
-| https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml | active | 5/5 | 7 | 7.0 |
-| https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml | active | 5/5 | 7 | 7.0 |
-| https://raw.githubusercontent.com/HakurouKen/free-node/main/public | active | 5/5 | 5 | 6.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/_pool.yaml | active | 5/5 | 6 | 6.0 |
-| https://raw.githubusercontent.com/actionsfz/v2ray/master/all.yaml | active | 5/5 | 6 | 6.0 |
-| https://raw.githubusercontent.com/actionsfz/v2ray/refs/heads/master/all.yaml | active | 5/5 | 6 | 6.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/xrayvip.yaml | active | 5/5 | 6 | 6.0 |
-| https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub | active | 5/5 | 9 | 6.0 |
-| https://raw.githubusercontent.com/shaoyouvip/free/refs/heads/main/all.yaml | active | 5/5 | 2 | 4.2 |
-| https://raw.githubusercontent.com/Pawdroid/Free-servers/refs/heads/main/sub | active | 4/5 | 9 | 4.2 |
-| https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml | active | 5/5 | 4 | 4.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/ttvg.yaml | active | 5/5 | 4 | 4.0 |
-| https://raw.githubusercontent.com/Shjpr9/Subs/refs/heads/main/sub.txt | active | 4/5 | 5 | 4.0 |
-| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/nodefree.txt | active | 5/5 | 3 | 3.0 |
-| https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trial.yaml | active | 4/5 | 3 | 2.4 |
-| https://raw.githubusercontent.com/F0rc3Run/F0rc3Run/refs/heads/main/splitted-by-protocol/vmess.txt | active | 4/5 | 3 | 2.4 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/mahdibland.yaml | active | 4/5 | 3 | 2.4 |
-| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/v2rayshare.txt | active | 4/5 | 3 | 2.4 |
-| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/wenode.txt | active | 4/5 | 3 | 2.4 |
-| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/yudou66.txt | active | 4/5 | 3 | 2.4 |
-| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/yudou66.yaml | active | 4/5 | 3 | 2.4 |
-| https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_cf.yaml | active | 4/5 | 6 | 2.4 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/hkaa0.yaml | active | 3/5 | 0 | 2.4 |
-| https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Base64/BLACK_SS+All_RUS_base64.txt | active | 5/5 | 3 | 2.2 |
-| https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_SS+All_RUS.txt | active | 5/5 | 3 | 2.2 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/SFZY666.yaml | active | 5/5 | 2 | 2.0 |
-| https://raw.githubusercontent.com/xiaoji235/airport-free/refs/heads/main/v2ray/v2rayshare.txt | active | 5/5 | 2 | 2.0 |
-| https://raw.githubusercontent.com/hello-world-1989/cn-news/main/end-gfw-together | active | 5/5 | 2 | 2.0 |
-| https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-TW.txt | active | 5/5 | 2 | 1.8 |
-| https://proxypool.link/trojan/sub | active | 5/5 | 1 | 1.6 |
-| https://raw.githubusercontent.com/free18/v2ray/main/c.yaml | active | 5/5 | 1 | 1.0 |
-| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/clashmeta.txt | active | 5/5 | 1 | 1.0 |
-| https://raw.githubusercontent.com/vxiaov/free_proxies/main/links.txt | active | 5/5 | 1 | 1.0 |
-| https://raw.githubusercontent.com/DukeMehdi/FreeList-V2ray-Configs/refs/heads/main/Configs/VMESS-DukeMehdi-Configs.txt | active | 5/5 | 0 | 0.0 |
-| https://github.com/AzadNetCH/Clash/raw/refs/heads/main/AzadNet.txt | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/README.md | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/aiboboxx/v2rayfree/refs/heads/main/README.md | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/roosterkid/openproxylist/refs/heads/main/V2RAY.txt | active | 5/5 | 0 | 0.0 |
-| https://node.freeclashnode.com/uploads/{Y}/{mm}/0-{Ymd}.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/main/APIs/sc0.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc0.yaml | active | 5/5 | 0 | 0.0 |
-| https://node.freeclashnode.com/uploads/{Y}/{mm}/1-{Ymd}.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/Misaka-blog/chromego_merge/main/sub/merged_proxies_new.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/main/APIs/sc1.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc1.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/chengaopan.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/peasoft.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/ripaojiedian.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/clashmeta.yaml | active | 5/5 | 0 | 0.0 |
-| https://node.freeclashnode.com/uploads/{Y}/{mm}/3-{Ymd}.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/blue-Youtube.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/main/APIs/sc3.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc3.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/clash_sub.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/ermaozi.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/Pawdroid.yaml | active | 5/5 | 0 | 0.0 |
-| https://node.freeclashnode.com/uploads/{Y}/{mm}/4-{Ymd}.yaml | active | 5/5 | 0 | 0.0 |
-| https://github.com/mermeroo/V2RAY-CLASH-BASE64-Subscription.Links/raw/refs/heads/main/SUB%20LINKS | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/andigwandi/free-proxy/main/proxy_list.txt | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/asgharkapk/Sub-Config-Extractor/main/output_configs/clash/Ruk1ng001.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/asgharkapk/Sub-Config-Extractor/main/output_configs/surfboard/Barabama_ndnode.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/asgharkapk/Sub-Config-Extractor/main/output_configs/surfboard/Ruk1ng001.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/nodev2ray.txt | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/dpangestuw/Free-Proxy/main/All_proxies.txt | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/linzjian666/chromego_extractor/main/outputs/clash_meta.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/officialputuid/ProxyForEveryone/main/xResults/old-data/RAW.txt | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/officialputuid/ProxyForEveryone/main/xResults/RAW.txt | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/shahidbhutta/Clash/main/Router | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/shahidbhutta/Clash/refs/heads/main/Router | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/sinspired/airport/main/subs/changfengoss.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/SnapdragonLee/SystemProxy/master/dist/clash_config.yaml | active | 5/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/xiaoji235/airport-free/refs/heads/main/v2ray/naidounode.txt | active | 5/5 | 0 | 0.0 |
-| https://free.datiya.com/uploads/{Ymd}-clash.yaml | active | 4/5 | 0 | 0.0 |
-| https://free.datiya.com/uploads/{Ymd}-v2ray.txt | active | 4/5 | 0 | 0.0 |
-| https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/clash.yaml | active | 3/5 | 0 | 0.0 |
-| https://www.ermao.net/sub/clash/ermao.net | active | 3/5 | 0 | 0.0 |
-| https://clashbest.github.io/uploads/{Y}/{mm}/0-{Ymd}.yaml | active | 2/5 | 0 | 0.0 |
-| https://clashbest.github.io/uploads/{Y}/{mm}/1-{Ymd}.yaml | active | 2/5 | 0 | 0.0 |
-| https://clashbest.github.io/uploads/{Y}/{mm}/3-{Ymd}.yaml | active | 2/5 | 0 | 0.0 |
-| https://clashbest.github.io/uploads/{Y}/{mm}/4-{Ymd}.yaml | active | 2/5 | 0 | 0.0 |
-| https://clashbest.github.io/uploads/{Y}/{mm}/{Ymd}.json | active | 2/5 | 0 | 0.0 |
-| https://mihomoparty.github.io/uploads/{Y}/{mm}/0-{Ymd}.yaml | active | 2/5 | 0 | 0.0 |
-| https://mihomoparty.github.io/uploads/{Y}/{mm}/1-{Ymd}.yaml | active | 2/5 | 0 | 0.0 |
-| https://mihomoparty.github.io/uploads/{Y}/{mm}/4-{Ymd}.yaml | active | 2/5 | 0 | 0.0 |
-| https://mihomoparty.github.io/uploads/{Y}/{mm}/{Ymd}.json | active | 2/5 | 0 | 0.0 |
+| https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/refs/heads/main/all_extracted_configs.txt | active | 5/6 | 10661 | 8983.0 |
+| https://raw.githubusercontent.com/DukeMehdi/FreeList-V2ray-Configs/refs/heads/main/Configs/VLESS-DukeMehdi-Configs.txt | active | 4/6 | 7090 | 4710.2 |
+| https://raw.githubusercontent.com/DukeMehdi/FreeList-V2ray-Configs/refs/heads/main/Configs/TROJAN-DukeMehdi-Configs.txt | active | 6/6 | 3735 | 3821.7 |
+| https://raw.githubusercontent.com/mheidari98/.proxy/main/all | active | 4/6 | 5628 | 3613.5 |
+| https://raw.githubusercontent.com/sakha1370/OpenRay/main/output/all_valid_proxies.txt | active | 5/6 | 3366 | 2834.2 |
+| https://raw.githubusercontent.com/sevcator/5ubscrpt10n/main/mini/m1n1-5ub-14.txt | active | 6/6 | 2343 | 2339.3 |
+| https://raw.githubusercontent.com/xiaoji235/airport-free/refs/heads/main/v2ray/clashnodecc.txt | active | 6/6 | 2187 | 2187.8 |
+| https://raw.githubusercontent.com/xiaoji235/airport-free/main/v2ray.txt | active | 5/6 | 2189 | 1825.0 |
+| https://raw.githubusercontent.com/liMilCo/v2r/main/configs.txt | active | 6/6 | 1612 | 1725.5 |
+| https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt | active | 5/6 | 1615 | 1368.8 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/soroushmirzaei.yaml | active | 5/6 | 1443 | 1207.5 |
+| https://raw.githubusercontent.com/sevcator/5ubscrpt10n/main/mini/m1n1-5ub-19.txt | active | 4/6 | 2039 | 985.7 |
+| https://raw.githubusercontent.com/Leon406/SubCrawler/master/sub/share/vless | active | 5/6 | 1110 | 900.5 |
+| https://clashgithub.com/wp-content/uploads/rss/{Ymd}.txt | active | 6/6 | 639 | 640.5 |
+| https://clashbest.github.io/uploads/{Y}/{mm}/2-{Ymd}.txt | active | 2/6 | 1825 | 608.2 |
+| https://mihomoparty.github.io/uploads/{Y}/{mm}/2-{Ymd}.txt | active | 2/6 | 1825 | 608.2 |
+| https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml | active | 6/6 | 542 | 542.0 |
+| https://raw.githubusercontent.com/asgharkapk/Sub-Config-Extractor/main/output_configs/mixed/Leon406/SubCrawler/sub/share/a11.yaml | active | 6/6 | 497 | 450.3 |
+| https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-JP.txt | active | 6/6 | 378 | 416.3 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/anaer.yaml | active | 6/6 | 351 | 354.0 |
+| https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml | active | 6/6 | 349 | 351.0 |
+| https://mihomoparty.github.io/uploads/{Y}/{mm}/4-{Ymd}.txt | active | 3/6 | 623 | 311.5 |
+| https://node.freeclashnode.com/uploads/{Y}/{mm}/2-{Ymd}.yaml | active | 6/6 | 297 | 297.0 |
+| https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml | active | 5/6 | 349 | 292.8 |
+| https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/Clash.yaml | active | 6/6 | 229 | 229.0 |
+| https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-SG.txt | active | 6/6 | 223 | 223.8 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/coldwater-10.yaml | active | 6/6 | 199 | 199.0 |
+| https://raw.githubusercontent.com/free-nodes/clashfree/main/clash{Ymd}.yml | active | 6/6 | 0 | 198.0 |
+| https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml | active | 5/6 | 230 | 191.7 |
+| https://raw.githubusercontent.com/liMilCo/v2r/main/base64/2.txt | active | 6/6 | 161 | 180.0 |
+| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/main/APIs/sc2.yaml | active | 5/6 | 195 | 162.5 |
+| https://raw.githubusercontent.com/F0rc3Run/F0rc3Run/refs/heads/main/splitted-by-protocol/trojan.txt | active | 6/6 | 162 | 155.2 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/trial.yaml | active | 6/6 | 154 | 154.5 |
+| https://raw.githubusercontent.com/barry-far/V2ray-config/main/Sub2.txt | active | 6/6 | 141 | 148.5 |
+| https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/main/sub.txt | active | 6/6 | 134 | 133.8 |
+| https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-US.txt | active | 6/6 | 144 | 130.8 |
+| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc2.yaml | active | 4/6 | 195 | 130.0 |
+| https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-HK.txt | active | 6/6 | 128 | 127.7 |
+| https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector/main/sub/mix | active | 5/6 | 139 | 114.3 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/_previous.yaml | active | 6/6 | 108 | 108.0 |
+| https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix | active | 6/6 | 77 | 77.3 |
+| https://raw.githubusercontent.com/ts-sf/fly/main/clash | active | 6/6 | 69 | 73.5 |
+| https://github.com/crackbest/V2ray-Config/raw/refs/heads/main/config.txt | active | 5/6 | 76 | 63.0 |
+| https://raw.githubusercontent.com/crackbest/V2ray-Config/refs/heads/main/config.txt | active | 5/6 | 76 | 63.0 |
+| https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Base64/BLACK_VLESS_RUS_mobile_base64.txt | active | 6/6 | 54 | 53.7 |
+| https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt | active | 6/6 | 54 | 53.7 |
+| https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Base64/BLACK_VLESS_RUS_base64.txt | active | 5/6 | 67 | 53.0 |
+| https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS.txt | active | 5/6 | 67 | 53.0 |
+| https://raw.githubusercontent.com/ts-sf/fly/main/v2 | active | 6/6 | 45 | 47.0 |
+| https://raw.githubusercontent.com/hans-thomas/v2ray-subscription/refs/heads/master/servers.txt | active | 6/6 | 47 | 47.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/clashfree.yaml | active | 5/6 | 56 | 46.7 |
+| https://raw.githubusercontent.com/Arefgh72/v2ray-proxy-pars-tester/main/output/github_all.txt | active | 6/6 | 46 | 46.0 |
+| https://raw.githubusercontent.com/F0rc3Run/F0rc3Run/refs/heads/main/splitted-by-protocol/vless.txt | active | 6/6 | 46 | 41.7 |
+| https://raw.githubusercontent.com/acymz/AutoVPN/main/data/V2.txt | active | 6/6 | 41 | 39.5 |
+| https://raw.githubusercontent.com/LoneKingCode/free-proxy-db/main/proxies/all.txt | active | 6/6 | 27 | 26.5 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/snakem982.yaml | active | 6/6 | 25 | 26.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/zhangkaiitugithub.yaml | active | 6/6 | 25 | 26.0 |
+| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/blues.txt | active | 6/6 | 26 | 26.0 |
+| https://clashbest.github.io/uploads/{Y}/{mm}/0-{Ymd}.txt | active | 3/6 | 51 | 25.5 |
+| https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml | active | 6/6 | 22 | 22.0 |
+| https://clashbest.github.io/uploads/{Y}/{mm}/1-{Ymd}.txt | active | 2/6 | 61 | 20.3 |
+| https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-KR.txt | active | 6/6 | 20 | 18.7 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/yudou.yaml | active | 6/6 | 17 | 17.0 |
+| https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml | active | 6/6 | 12 | 16.5 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/aiboboxx.yaml | active | 6/6 | 16 | 16.5 |
+| https://raw.githubusercontent.com/PangTouY00/Auto_proxy/main/Long_term_subscription_num | active | 6/6 | 16 | 16.3 |
+| https://www.xrayvip.com/free.txt | active | 6/6 | 15 | 16.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/tssf.yaml | active | 6/6 | 16 | 16.0 |
+| https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/refs/heads/master/Eternity.txt | active | 6/6 | 15 | 15.0 |
+| https://raw.githubusercontent.com/justVisiting992/xray-Config-Collector/main/clash.yaml | active | 6/6 | 14 | 14.7 |
+| https://raw.githubusercontent.com/ovmvo/SubShare/main/sub/permanent/mihomo.yaml | active | 6/6 | 14 | 14.0 |
+| https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml | active | 6/6 | 9 | 12.7 |
+| https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml | active | 6/6 | 9 | 12.7 |
+| https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/v2ray/subs/sub2.txt | active | 6/6 | 12 | 12.0 |
+| https://raw.githubusercontent.com/ggborr/FREEE-VPN/main/3v2 | active | 6/6 | 9 | 9.0 |
+| https://raw.githubusercontent.com/mgit0001/test_clash/main/heima.txt | active | 6/6 | 8 | 8.0 |
+| https://raw.githubusercontent.com/mgit0001/test_clash/refs/heads/main/heima.txt | active | 6/6 | 8 | 8.0 |
+| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/ndnode.txt | active | 6/6 | 7 | 7.0 |
+| https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml | active | 6/6 | 7 | 7.0 |
+| https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml | active | 6/6 | 7 | 7.0 |
+| https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub | active | 6/6 | 9 | 6.5 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/_pool.yaml | active | 6/6 | 6 | 6.0 |
+| https://raw.githubusercontent.com/actionsfz/v2ray/master/all.yaml | active | 6/6 | 6 | 6.0 |
+| https://raw.githubusercontent.com/actionsfz/v2ray/refs/heads/master/all.yaml | active | 6/6 | 6 | 6.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/xrayvip.yaml | active | 6/6 | 6 | 6.0 |
+| https://raw.githubusercontent.com/HakurouKen/free-node/main/public | active | 6/6 | 5 | 5.8 |
+| https://raw.githubusercontent.com/Pawdroid/Free-servers/refs/heads/main/sub | active | 5/6 | 9 | 5.0 |
+| https://raw.githubusercontent.com/Shjpr9/Subs/refs/heads/main/sub.txt | active | 5/6 | 5 | 4.2 |
+| https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml | active | 6/6 | 4 | 4.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/ttvg.yaml | active | 6/6 | 4 | 4.0 |
+| https://raw.githubusercontent.com/shaoyouvip/free/refs/heads/main/all.yaml | active | 6/6 | 2 | 3.8 |
+| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/nodefree.txt | active | 6/6 | 3 | 3.0 |
+| https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_cf.yaml | active | 5/6 | 6 | 3.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/hkaa0.yaml | active | 4/6 | 4 | 2.7 |
+| https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trial.yaml | active | 5/6 | 3 | 2.5 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/mahdibland.yaml | active | 5/6 | 3 | 2.5 |
+| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/v2rayshare.txt | active | 5/6 | 3 | 2.5 |
+| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/wenode.txt | active | 5/6 | 3 | 2.5 |
+| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/yudou66.txt | active | 5/6 | 3 | 2.5 |
+| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/yudou66.yaml | active | 5/6 | 3 | 2.5 |
+| https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Base64/BLACK_SS+All_RUS_base64.txt | active | 6/6 | 3 | 2.3 |
+| https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_SS+All_RUS.txt | active | 6/6 | 3 | 2.3 |
+| https://raw.githubusercontent.com/F0rc3Run/F0rc3Run/refs/heads/main/splitted-by-protocol/vmess.txt | active | 5/6 | 2 | 2.3 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/SFZY666.yaml | active | 6/6 | 2 | 2.0 |
+| https://raw.githubusercontent.com/xiaoji235/airport-free/refs/heads/main/v2ray/v2rayshare.txt | active | 6/6 | 2 | 2.0 |
+| https://raw.githubusercontent.com/hello-world-1989/cn-news/main/end-gfw-together | active | 6/6 | 2 | 2.0 |
+| https://raw.githubusercontent.com/free18/v2ray/main/c.yaml | active | 6/6 | 7 | 2.0 |
+| https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-TW.txt | active | 6/6 | 2 | 1.8 |
+| https://proxypool.link/trojan/sub | active | 6/6 | 1 | 1.5 |
+| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/clashmeta.txt | active | 6/6 | 1 | 1.0 |
+| https://raw.githubusercontent.com/vxiaov/free_proxies/main/links.txt | active | 6/6 | 1 | 1.0 |
+| https://raw.githubusercontent.com/DukeMehdi/FreeList-V2ray-Configs/refs/heads/main/Configs/VMESS-DukeMehdi-Configs.txt | active | 6/6 | 0 | 0.0 |
+| https://github.com/AzadNetCH/Clash/raw/refs/heads/main/AzadNet.txt | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/README.md | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/aiboboxx/v2rayfree/refs/heads/main/README.md | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/roosterkid/openproxylist/refs/heads/main/V2RAY.txt | active | 6/6 | 0 | 0.0 |
+| https://node.freeclashnode.com/uploads/{Y}/{mm}/0-{Ymd}.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/main/APIs/sc0.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc0.yaml | active | 6/6 | 0 | 0.0 |
+| https://node.freeclashnode.com/uploads/{Y}/{mm}/1-{Ymd}.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/Misaka-blog/chromego_merge/main/sub/merged_proxies_new.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/main/APIs/sc1.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc1.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/chengaopan.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/peasoft.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/ripaojiedian.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/clashmeta.yaml | active | 6/6 | 0 | 0.0 |
+| https://node.freeclashnode.com/uploads/{Y}/{mm}/3-{Ymd}.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/blue-Youtube.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/main/APIs/sc3.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc3.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/clash_sub.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/ermaozi.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/Pawdroid.yaml | active | 6/6 | 0 | 0.0 |
+| https://node.freeclashnode.com/uploads/{Y}/{mm}/4-{Ymd}.yaml | active | 6/6 | 0 | 0.0 |
+| https://github.com/mermeroo/V2RAY-CLASH-BASE64-Subscription.Links/raw/refs/heads/main/SUB%20LINKS | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/andigwandi/free-proxy/main/proxy_list.txt | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/asgharkapk/Sub-Config-Extractor/main/output_configs/clash/Ruk1ng001.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/asgharkapk/Sub-Config-Extractor/main/output_configs/surfboard/Barabama_ndnode.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/asgharkapk/Sub-Config-Extractor/main/output_configs/surfboard/Ruk1ng001.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/nodev2ray.txt | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/dpangestuw/Free-Proxy/main/All_proxies.txt | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/linzjian666/chromego_extractor/main/outputs/clash_meta.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/officialputuid/ProxyForEveryone/main/xResults/old-data/RAW.txt | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/officialputuid/ProxyForEveryone/main/xResults/RAW.txt | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/shahidbhutta/Clash/main/Router | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/shahidbhutta/Clash/refs/heads/main/Router | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/sinspired/airport/main/subs/changfengoss.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/SnapdragonLee/SystemProxy/master/dist/clash_config.yaml | active | 6/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/xiaoji235/airport-free/refs/heads/main/v2ray/naidounode.txt | active | 6/6 | 0 | 0.0 |
+| https://free.datiya.com/uploads/{Ymd}-v2ray.txt | active | 5/6 | 0 | 0.0 |
+| https://free.datiya.com/uploads/{Ymd}-clash.yaml | active | 4/6 | 0 | 0.0 |
+| https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/clash.yaml | active | 4/6 | 0 | 0.0 |
+| https://www.ermao.net/sub/clash/ermao.net | active | 4/6 | 0 | 0.0 |
+| https://clashbest.github.io/uploads/{Y}/{mm}/0-{Ymd}.yaml | active | 3/6 | 0 | 0.0 |
+| https://clashbest.github.io/uploads/{Y}/{mm}/1-{Ymd}.yaml | active | 3/6 | 0 | 0.0 |
+| https://clashbest.github.io/uploads/{Y}/{mm}/3-{Ymd}.yaml | active | 3/6 | 0 | 0.0 |
+| https://clashbest.github.io/uploads/{Y}/{mm}/4-{Ymd}.yaml | active | 3/6 | 0 | 0.0 |
+| https://clashbest.github.io/uploads/{Y}/{mm}/{Ymd}.json | active | 3/6 | 0 | 0.0 |
+| https://mihomoparty.github.io/uploads/{Y}/{mm}/0-{Ymd}.yaml | active | 3/6 | 0 | 0.0 |
+| https://mihomoparty.github.io/uploads/{Y}/{mm}/1-{Ymd}.yaml | active | 3/6 | 0 | 0.0 |
+| https://mihomoparty.github.io/uploads/{Y}/{mm}/4-{Ymd}.yaml | active | 3/6 | 0 | 0.0 |
+| https://mihomoparty.github.io/uploads/{Y}/{mm}/{Ymd}.json | active | 3/6 | 0 | 0.0 |
 | https://clashbest.github.io/uploads/{Y}/{mm}/2-{Ymd}.yaml | 冷却至 08-23 | 0/4 | 0 | 0.0 |
 | https://link.rittbo.kdns.fr/sub?token=8794e5157120a9982b0ceed9dcef5de7 | 冷却至 08-23 | 0/4 | 0 | 0.0 |
 | https://raw.githubusercontent.com/free-nodes/v2rayfree/main/v{ymd}1 | 冷却至 08-23 | 0/4 | 0 | 0.0 |
@@ -204,6 +204,6 @@
 ## 聚合源（按近 N 次平均拉取数降序）
 | id | link | success_rate | last | avg |
 |---|---|---|---|---|
-| sinspired_scan | https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/scan.txt | 5/5 | 18 | 18.2 |
-| sinspired_col | https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/col.txt | 5/5 | 16 | 16.0 |
-| sinspired_cm | https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/cm.txt | 5/5 | 11 | 11.0 |
+| sinspired_scan | https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/scan.txt | 6/6 | 20 | 18.5 |
+| sinspired_col | https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/col.txt | 6/6 | 17 | 16.2 |
+| sinspired_cm | https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/cm.txt | 6/6 | 12 | 11.2 |
