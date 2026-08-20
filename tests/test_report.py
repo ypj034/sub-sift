@@ -1,13 +1,11 @@
-"""报告生成测试：规则计数器合并、主清单排序、重叠度移除。"""
+"""报告生成测试：主清单规则分组列、状态分组排序、排序键。"""
 import textwrap
 from datetime import date
 
 from modules.common.config import Config, load_config
-from modules.common.enums import RejectReason
-from modules.pipeline import RuleStats
 from modules.report.generator import (
     _main_sort_key,
-    _merge_validity_rows,
+    _rule_group_cells,
     _state_rank,
     generate_report,
 )
@@ -50,19 +48,21 @@ def _load_cfg(tmp_path) -> Config:
     return load_config(str(p))
 
 
-def test_merge_validity_rows():
-    rows = [
-        ("validity_target", 10),
-        ("security_vless", 5),
-        ("validity_fields", 20),
-    ]
-    assert _merge_validity_rows(rows) == [("validity", 30), ("security_vless", 5)]
-
-
-def test_merge_validity_rows_edge_cases():
-    assert _merge_validity_rows([("validity_fields", 7)]) == [("validity", 7)]
-    assert _merge_validity_rows([]) == []
-    assert _merge_validity_rows([("security_ss", 2)]) == [("security_ss", 2)]
+def test_rule_group_cells():
+    # 未拉取（None）→ 5 列全部留空
+    assert _rule_group_cells(None) == ["", "", "", "", ""]
+    # 分组聚合：validity 两规则并入"无效"，security_vless 入"非加密"，rejected 为合计
+    info = {
+        "rejected": 42,
+        "rule_counts": {
+            "validity_target": 20,
+            "validity_fields": 10,
+            "security_vless": 12,
+        },
+    }
+    assert _rule_group_cells(info) == ["30", "12", "0", "0", "42"]
+    # 无 rule_counts → 各列 0，合计取 rejected
+    assert _rule_group_cells({"rejected": 5}) == ["0", "0", "0", "0", "5"]
 
 
 def test_state_rank_group_order():
@@ -106,12 +106,6 @@ def test_generate_report_structure(tmp_path):
     cfg = _load_cfg(tmp_path)
     today = date(2026, 8, 20)
 
-    stats = RuleStats()
-    stats.record("validity_target", RejectReason.INVALID_TARGET)
-    stats.record("validity_target", RejectReason.INVALID_TARGET)
-    stats.record("validity_fields", RejectReason.INVALID_FIELD)
-    stats.record("security_vless", RejectReason.UNSAFE_NO_TLS)
-
     sub_rows = [
         SubscriptionRow(link="https://disabled.example/x", sources=["manual"]),
         SubscriptionRow(link="https://active.example/y", sources=["manual"]),
@@ -130,13 +124,16 @@ def test_generate_report_structure(tmp_path):
         "sub_rows": sub_rows,
         "sub_states": sub_states,
         "per_link": {
-            "https://active.example/y": {"ok": True, "count": 150, "rejected": 42},
+            "https://active.example/y": {
+                "ok": True,
+                "count": 150,
+                "rejected": 42,
+                "rule_counts": {"validity_target": 30, "security_vless": 12},
+            },
         },
         "skipped": 0,
         "merged_count": 0,
         "geoip_source": "-",
-        "stats": stats,
-        "rule_order": cfg.active_rules,
         "agg_rows": [],
         "agg_windows": {},
         "output_files": {"plain": "plain.txt"},
@@ -145,25 +142,25 @@ def test_generate_report_structure(tmp_path):
     with open(path, encoding="utf-8") as f:
         content = f.read()
 
-    # 规则计数器：validity 合并为一行（中文名），且遵循 config 声明顺序（在 security_vless 之前）
-    assert "| 字段有效性 | 3 |" in content
-    assert "| vless 安全 | 1 |" in content
-    assert content.index("| 字段有效性 |") < content.index("| vless 安全 |")
+    # 规则计数器章节已删除（含规则级中文名、异常计数）
+    assert "## 规则计数器" not in content
+    assert "字段有效性" not in content
     assert "validity_target" not in content
     assert "validity_fields" not in content
-    # 合计行 = 所有规则拒绝数之和（3 + 1）
-    assert "| **合计** | **4** |" in content
 
-    # 主清单：中文表头、success_rate 列居中、无 total 列、无重叠度章节、标题正确
-    assert "| 链接 | 状态 | 成功率 | 最近 | 平均 | 被拒 |" in content
-    assert "|---|---|---|:---:|---|---|" in content
+    # 主清单：中文表头、状态/成功率列居中、规则分组列、无 total 列、无重叠度章节
+    assert "| 链接 | 状态 | 成功率 | 最近 | 平均 | 无效 | 非加密 | 排除协议 | 排除地区 | 排除合计 |" in content
+    assert "| --- | :---: | :---: | --- | --- | --- | --- | --- | --- | --- |" in content
     assert "total" not in content
     assert "## 重叠度" not in content
     assert "## 主清单（active → 冷却 → disabled；组内按 avg 降序）" in content
     # 排序：active 组在 disabled 组之前
     assert content.index("https://active.example/y") < content.index("https://disabled.example/x")
-    # 被拒列：已拉取的链接显示拒绝数，未拉取显示 -
+
+    # 规则列：已拉取链接显示分组聚合值，未拉取（禁用）链接留空
     line_active = next(l for l in content.splitlines() if "https://active.example/y" in l)
-    assert line_active.rstrip().endswith("| 42 |")
+    cells_active = [c.strip() for c in line_active.split("|")]
+    assert cells_active[6:11] == ["30", "12", "0", "0", "42"]
     line_disabled = next(l for l in content.splitlines() if "https://disabled.example/x" in l)
-    assert line_disabled.rstrip().endswith("| - |")
+    cells_disabled = [c.strip() for c in line_disabled.split("|")]
+    assert cells_disabled[6:11] == ["", "", "", "", ""]

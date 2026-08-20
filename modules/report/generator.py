@@ -1,4 +1,4 @@
-"""report.md 生成：运行概览、规则计数器、主清单排序表、聚合源统计。
+"""report.md 生成：运行概览、主清单排序表（规则分组列）、聚合源统计。
 
 DESIGN.md §9：人读汇总，只展示统计，不做任何决策依据。
 """
@@ -8,23 +8,14 @@ import os
 from typing import Any
 
 from ..common.config import Config
-from ..pipeline.engine import RuleStats
 
-# 规则中文名（仅展示层映射，判定逻辑仍用规则 ID）
-_RULE_CN = {
-    "protocol_allowlist": "协议过滤",
-    "validity": "字段有效性",
-    "validity_target": "目标地址",
-    "validity_fields": "字段格式",
-    "server_denylist": "假节点域名",
-    "suspicious_pattern": "投毒形态",
-    "security_vmess": "vmess 安全",
-    "security_vless": "vless 安全",
-    "security_trojan": "trojan 安全",
-    "security_ss": "ss 安全",
-    "security_hysteria2": "hysteria2 安全",
-    "junk_keywords": "垃圾关键词",
-    "region_allowlist": "地区过滤",
+# 主清单规则列分组（列名 → 规则 ID 集合；仅展示层聚合，判定逻辑仍用规则 ID）
+_RULE_GROUP_ORDER = ("无效", "非加密", "排除协议", "排除地区")
+_RULE_GROUP_RULES = {
+    "无效": ("server_denylist", "validity_target", "validity_fields", "suspicious_pattern", "junk_keywords"),
+    "非加密": ("security_vmess", "security_vless", "security_trojan", "security_ss", "security_hysteria2"),
+    "排除协议": ("protocol_allowlist",),
+    "排除地区": ("region_allowlist",),
 }
 
 
@@ -46,37 +37,14 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
         lines.append(f"- 输出文件: {files}")
     lines.append("")
 
-    # 规则计数器（按规则聚合总数，遵循脚本运行时规则声明顺序）
-    lines.append("## 规则计数器")
-    stats: RuleStats = ctx["stats"]
-    order = ctx.get("rule_order") or []
-    rows = stats.as_rule_totals(order) if order else []
-    rows = _merge_validity_rows(rows)
-    if rows:
-        lines.append("| 规则 | 拒绝数 |")
-        lines.append("|---|---|")
-        for rule_id, count in rows:
-            name = _RULE_CN.get(rule_id, rule_id)
-            lines.append(f"| {name} | {count} |")
-        lines.append(f"| **合计** | **{sum(count for _, count in rows)}** |")
-    else:
-        lines.append("（本轮无节点被规则拒绝）")
-    if stats.errors:
-        lines.append("")
-        lines.append("> 规则异常计数：")
-        for rule_id, count in stats.errors.items():
-            name = _RULE_CN.get(rule_id, rule_id)
-            lines.append(f"> - {name}: {count} 次（fail-closed 已按 REJECT 处理）")
-    lines.append("")
-
-    # 主清单排序表（state 分组 → avg 降序 → success_rate 降序）
+    # 主清单排序表（state 分组 → avg 降序 → success_rate 降序；规则列分组聚合）
     lines.append("## 主清单（active → 冷却 → disabled；组内按 avg 降序）")
     sub_rows = ctx["sub_rows"]
     sub_states = ctx["sub_states"]
     per_link = ctx["per_link"]
     today = ctx["today"]
-    lines.append("| 链接 | 状态 | 成功率 | 最近 | 平均 | 被拒 |")
-    lines.append("|---|---|---|:---:|---|---|")
+    lines.append("| 链接 | 状态 | 成功率 | 最近 | 平均 | 无效 | 非加密 | 排除协议 | 排除地区 | 排除合计 |")
+    lines.append("| --- | :---: | :---: | --- | --- | --- | --- | --- | --- | --- |")
     for row in sorted(
         sub_rows, key=lambda r: _main_sort_key(sub_states.get(r.link), today)
     ):
@@ -86,8 +54,8 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
         avg = _avg_count(state)
         st = _state_str(state)
         info = per_link.get(row.link)
-        rejected = info["rejected"] if info else "-"
-        lines.append(f"| {row.link} | {st} | {sr} | {last} | {avg:.1f} | {rejected} |")
+        cells = " | ".join(_rule_group_cells(info))
+        lines.append(f"| {row.link} | {st} | {sr} | {last} | {avg:.1f} | {cells} |")
     lines.append("")
 
     # 聚合源
@@ -120,13 +88,18 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
 # 内部辅助（与 csv_store / statemachine 的统计口径保持一致）
 # ---------------------------------------------------------------------------
 
-def _merge_validity_rows(rows: list[tuple[str, int]]) -> list[tuple[str, int]]:
-    """展示层合并 validity_target + validity_fields 为一行 validity（规则引擎保持独立）。"""
-    merged: dict[str, int] = {}
-    for rule_id, count in rows:
-        name = "validity" if rule_id in ("validity_target", "validity_fields") else rule_id
-        merged[name] = merged.get(name, 0) + count
-    return list(merged.items())
+def _rule_group_cells(info: dict[str, Any] | None) -> list[str]:
+    """主清单规则列：按分组聚合每个链接的拒绝数。
+
+    info 为 None（本轮未拉取，如冷却/禁用）时规则列全部留空；
+    否则按 _RULE_GROUP_RULES 分组求和，末尾追加"排除合计"（全部规则拒绝总数）。
+    """
+    if info is None:
+        return ["", "", "", "", ""]
+    rc = info.get("rule_counts") or {}
+    cells = [str(sum(rc.get(rid, 0) for rid in _RULE_GROUP_RULES[col])) for col in _RULE_GROUP_ORDER]
+    cells.append(str(info.get("rejected", 0)))
+    return cells
 
 
 def _state_rank(state, today) -> int:

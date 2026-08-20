@@ -121,6 +121,7 @@ def main(argv: Optional[list[str]] = None) -> int:
         disable_failures=config.disable_failures,
     )
     rules = build_rules(config, geoip)
+    rule_order = [r.rule_id for r in rules]
 
     plan: list[csv_store.SubscriptionRow] = []
     skipped = 0
@@ -156,6 +157,7 @@ def main(argv: Optional[list[str]] = None) -> int:
                 "count": len(passed),
                 "counts": counts,
                 "rejected": stats.total_rejected(),
+                "rule_counts": dict(stats.as_rule_totals(rule_order)),
             }
             state = sub_states[link]
             sm.record_result(state, ok, len(passed), today)
@@ -204,8 +206,6 @@ def main(argv: Optional[list[str]] = None) -> int:
             "sub_states": sub_states,
             "per_link": per_link,
             "skipped": skipped,
-            "stats": run_stats,
-            "rule_order": [r.rule_id for r in rules],
             "merged_count": len(merged),
             "agg_rows": agg_rows,
             "agg_windows": agg_windows,
