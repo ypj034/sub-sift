@@ -27,6 +27,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 49
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 49
         }
       ],
       "consecutive_failures": 0,
@@ -37,6 +42,11 @@
     {
       "link": "https://clashbest.github.io/uploads/{Y}/{mm}/0-{Ymd}.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -95,6 +105,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 58
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 58
         }
       ],
       "consecutive_failures": 0,
@@ -105,6 +120,11 @@
     {
       "link": "https://clashbest.github.io/uploads/{Y}/{mm}/1-{Ymd}.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -163,6 +183,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 1780
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 1780
         }
       ],
       "consecutive_failures": 0,
@@ -173,6 +198,11 @@
     {
       "link": "https://clashbest.github.io/uploads/{Y}/{mm}/2-{Ymd}.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 274
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -231,6 +261,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -241,6 +276,11 @@
     {
       "link": "https://clashbest.github.io/uploads/{Y}/{mm}/4-{Ymd}.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -299,6 +339,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -309,6 +354,11 @@
     {
       "link": "https://clashgithub.com/wp-content/uploads/rss/{Ymd}.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 623
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -367,6 +417,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -377,6 +432,11 @@
     {
       "link": "https://free.datiya.com/uploads/{Ymd}-v2ray.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -435,6 +495,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 128
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 128
         }
       ],
       "consecutive_failures": 0,
@@ -445,6 +510,11 @@
     {
       "link": "https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-JP.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 378
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -503,6 +573,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 20
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 20
         }
       ],
       "consecutive_failures": 0,
@@ -513,6 +588,11 @@
     {
       "link": "https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-SG.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 223
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -571,6 +651,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 2
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 2
         }
       ],
       "consecutive_failures": 0,
@@ -581,6 +666,11 @@
     {
       "link": "https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-US.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 144
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -639,6 +729,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -673,6 +768,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 76
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 72
         }
       ],
       "consecutive_failures": 0,
@@ -683,6 +783,11 @@
     {
       "link": "https://github.com/mermeroo/V2RAY-CLASH-BASE64-Subscription.Links/raw/refs/heads/main/SUB%20LINKS",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -770,6 +875,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -780,6 +890,11 @@
     {
       "link": "https://mihomoparty.github.io/uploads/{Y}/{mm}/1-{Ymd}.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -838,6 +953,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 1780
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 1780
         }
       ],
       "consecutive_failures": 0,
@@ -848,6 +968,11 @@
     {
       "link": "https://mihomoparty.github.io/uploads/{Y}/{mm}/4-{Ymd}.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 608
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -906,6 +1031,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -916,6 +1046,11 @@
     {
       "link": "https://mihomoparty.github.io/uploads/{Y}/{mm}/{Ymd}.json",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -974,6 +1109,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -984,6 +1124,11 @@
     {
       "link": "https://node.freeclashnode.com/uploads/{Y}/{mm}/1-{Ymd}.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -1042,6 +1187,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 274
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 274
         }
       ],
       "consecutive_failures": 0,
@@ -1052,6 +1202,11 @@
     {
       "link": "https://node.freeclashnode.com/uploads/{Y}/{mm}/3-{Ymd}.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -1110,6 +1265,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -1144,6 +1304,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -1178,6 +1343,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 133
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 128
         }
       ],
       "consecutive_failures": 0,
@@ -1188,6 +1358,11 @@
     {
       "link": "https://raw.githubusercontent.com/Arefgh72/v2ray-proxy-pars-tester/main/output/github_all.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 46
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -1246,6 +1421,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 26
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 26
         }
       ],
       "consecutive_failures": 0,
@@ -1256,6 +1436,11 @@
     {
       "link": "https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/clashmeta.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 1
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -1314,6 +1499,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -1324,6 +1514,11 @@
     {
       "link": "https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/ndnode.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 7
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -1382,6 +1577,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 3
         }
       ],
       "consecutive_failures": 0,
@@ -1392,6 +1592,11 @@
     {
       "link": "https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/nodev2ray.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -1450,6 +1655,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 3
         }
       ],
       "consecutive_failures": 0,
@@ -1460,6 +1670,11 @@
     {
       "link": "https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/wenode.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 3
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -1518,6 +1733,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 3
         }
       ],
       "consecutive_failures": 0,
@@ -1528,6 +1748,11 @@
     {
       "link": "https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/yudou66.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 3
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -1586,6 +1811,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -1620,6 +1850,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 3634
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 3588
         }
       ],
       "consecutive_failures": 0,
@@ -1654,6 +1889,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 6504
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 6520
         }
       ],
       "consecutive_failures": 0,
@@ -1664,6 +1904,11 @@
     {
       "link": "https://raw.githubusercontent.com/DukeMehdi/FreeList-V2ray-Configs/refs/heads/main/Configs/VMESS-DukeMehdi-Configs.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -1722,6 +1967,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 162
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 113
         }
       ],
       "consecutive_failures": 0,
@@ -1756,6 +2006,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 45
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 42
         }
       ],
       "consecutive_failures": 0,
@@ -1790,6 +2045,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 2
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 5
         }
       ],
       "consecutive_failures": 0,
@@ -1824,6 +2084,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 5
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 11
         }
       ],
       "consecutive_failures": 0,
@@ -1858,6 +2123,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 1043
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 1087
         }
       ],
       "consecutive_failures": 0,
@@ -1868,6 +2138,11 @@
     {
       "link": "https://raw.githubusercontent.com/LoneKingCode/free-proxy-db/main/proxies/all.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 24
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -1926,6 +2201,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 12
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 12
         }
       ],
       "consecutive_failures": 0,
@@ -1960,6 +2240,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 127
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 129
         }
       ],
       "consecutive_failures": 0,
@@ -1994,6 +2279,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 3
         }
       ],
       "consecutive_failures": 0,
@@ -2057,6 +2347,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 225
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 225
         }
       ],
       "consecutive_failures": 0,
@@ -2067,6 +2362,11 @@
     {
       "link": "https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 226
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -2125,6 +2425,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 16
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 16
         }
       ],
       "consecutive_failures": 0,
@@ -2159,6 +2464,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 9
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 11
         }
       ],
       "consecutive_failures": 0,
@@ -2193,6 +2503,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 9
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 11
         }
       ],
       "consecutive_failures": 0,
@@ -2203,6 +2518,11 @@
     {
       "link": "https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/main/APIs/sc0.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -2261,6 +2581,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -2271,6 +2596,11 @@
     {
       "link": "https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/main/APIs/sc2.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 181
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -2329,6 +2659,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -2339,6 +2674,11 @@
     {
       "link": "https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc0.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -2397,6 +2737,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -2407,6 +2752,11 @@
     {
       "link": "https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc2.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 181
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -2465,6 +2815,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -2475,6 +2830,11 @@
     {
       "link": "https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 22
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -2533,6 +2893,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 5
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 5
         }
       ],
       "consecutive_failures": 0,
@@ -2543,6 +2908,11 @@
     {
       "link": "https://raw.githubusercontent.com/SnapdragonLee/SystemProxy/master/dist/clash_config.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -2601,6 +2971,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 1567
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 1567
         }
       ],
       "consecutive_failures": 0,
@@ -2611,6 +2986,11 @@
     {
       "link": "https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/refs/heads/master/Eternity.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 15
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -2669,6 +3049,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 6
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 6
         }
       ],
       "consecutive_failures": 0,
@@ -2679,6 +3064,11 @@
     {
       "link": "https://raw.githubusercontent.com/actionsfz/v2ray/refs/heads/master/all.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 6
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -2737,6 +3127,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 35
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 32
         }
       ],
       "consecutive_failures": 0,
@@ -2747,6 +3142,11 @@
     {
       "link": "https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/README.md",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -2805,6 +3205,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -2839,6 +3244,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 523
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 352
         }
       ],
       "consecutive_failures": 0,
@@ -2849,6 +3259,11 @@
     {
       "link": "https://raw.githubusercontent.com/andigwandi/free-proxy/main/proxy_list.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -2907,6 +3322,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -2917,6 +3337,11 @@
     {
       "link": "https://raw.githubusercontent.com/asgharkapk/Sub-Config-Extractor/main/output_configs/mixed/Leon406/SubCrawler/sub/share/a11.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 497
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -2975,6 +3400,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -2985,6 +3415,11 @@
     {
       "link": "https://raw.githubusercontent.com/asgharkapk/Sub-Config-Extractor/main/output_configs/surfboard/Ruk1ng001.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -3043,6 +3478,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 148
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 142
         }
       ],
       "consecutive_failures": 0,
@@ -3053,6 +3493,11 @@
     {
       "link": "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -3111,6 +3556,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 76
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 72
         }
       ],
       "consecutive_failures": 0,
@@ -3121,6 +3571,11 @@
     {
       "link": "https://raw.githubusercontent.com/dpangestuw/Free-Proxy/main/All_proxies.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -3179,6 +3634,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 9989
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 9920
         }
       ],
       "consecutive_failures": 0,
@@ -3189,6 +3649,11 @@
     {
       "link": "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -3247,6 +3712,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -3276,6 +3746,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 577
         },
         {
           "ts": "2026-08-20",
@@ -3373,6 +3848,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 7
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 7
         }
       ],
       "consecutive_failures": 0,
@@ -3383,6 +3863,11 @@
     {
       "link": "https://raw.githubusercontent.com/ggborr/FREEE-VPN/main/3v2",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 9
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -3441,6 +3926,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -3451,6 +3941,11 @@
     {
       "link": "https://raw.githubusercontent.com/hans-thomas/v2ray-subscription/refs/heads/master/servers.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 46
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -3509,6 +4004,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 2
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 2
         }
       ],
       "consecutive_failures": 0,
@@ -3533,6 +4033,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         },
         {
           "ts": "2026-08-20",
@@ -3577,6 +4082,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 52
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 52
         }
       ],
       "consecutive_failures": 0,
@@ -3601,6 +4111,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 52
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 59
         },
         {
           "ts": "2026-08-20",
@@ -3645,6 +4160,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -3669,6 +4189,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 61
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 52
         },
         {
           "ts": "2026-08-20",
@@ -3713,6 +4238,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 59
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 59
         }
       ],
       "consecutive_failures": 0,
@@ -3723,6 +4253,11 @@
     {
       "link": "https://raw.githubusercontent.com/justVisiting992/xray-Config-Collector/main/clash.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 6
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -3868,6 +4403,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 155
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 155
         }
       ],
       "consecutive_failures": 0,
@@ -3878,6 +4418,11 @@
     {
       "link": "https://raw.githubusercontent.com/liMilCo/v2r/main/configs.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 1544
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -3936,6 +4481,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -3946,6 +4496,11 @@
     {
       "link": "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 342
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -4004,6 +4559,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 4
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 4
         }
       ],
       "consecutive_failures": 0,
@@ -4014,6 +4574,11 @@
     {
       "link": "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 342
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -4072,6 +4637,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 3
         }
       ],
       "consecutive_failures": 0,
@@ -4082,6 +4652,11 @@
     {
       "link": "https://raw.githubusercontent.com/mgit0001/test_clash/main/heima.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 8
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -4140,6 +4715,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 8
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 8
         }
       ],
       "consecutive_failures": 0,
@@ -4174,6 +4754,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 5537
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 5508
         }
       ],
       "consecutive_failures": 0,
@@ -4184,6 +4769,11 @@
     {
       "link": "https://raw.githubusercontent.com/officialputuid/ProxyForEveryone/main/xResults/RAW.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -4242,6 +4832,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -4252,6 +4847,11 @@
     {
       "link": "https://raw.githubusercontent.com/ovmvo/SubShare/main/sub/permanent/mihomo.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 14
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -4310,6 +4910,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 5
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 1
         }
       ],
       "consecutive_failures": 0,
@@ -4344,6 +4949,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 13
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 38
         }
       ],
       "consecutive_failures": 0,
@@ -4378,6 +4988,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 4
         }
       ],
       "consecutive_failures": 0,
@@ -4412,6 +5027,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 13
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 38
         }
       ],
       "consecutive_failures": 0,
@@ -4422,6 +5042,11 @@
     {
       "link": "https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -4480,6 +5105,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -4514,6 +5144,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 3055
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 3088
         }
       ],
       "consecutive_failures": 0,
@@ -4524,6 +5159,11 @@
     {
       "link": "https://raw.githubusercontent.com/sevcator/5ubscrpt10n/main/mini/m1n1-5ub-14.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 2260
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -4582,6 +5222,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 1939
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 1939
         }
       ],
       "consecutive_failures": 0,
@@ -4592,6 +5237,11 @@
     {
       "link": "https://raw.githubusercontent.com/shahidbhutta/Clash/main/Router",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -4650,6 +5300,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -4684,6 +5339,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 6
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 3
         }
       ],
       "consecutive_failures": 0,
@@ -4694,6 +5354,11 @@
     {
       "link": "https://raw.githubusercontent.com/sinspired/airport/main/subs/Pawdroid.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -4752,6 +5417,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 2
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 2
         }
       ],
       "consecutive_failures": 0,
@@ -4762,6 +5432,11 @@
     {
       "link": "https://raw.githubusercontent.com/sinspired/airport/main/subs/_pool.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 6
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -4820,6 +5495,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 105
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 105
         }
       ],
       "consecutive_failures": 0,
@@ -4830,6 +5510,11 @@
     {
       "link": "https://raw.githubusercontent.com/sinspired/airport/main/subs/aiboboxx.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 15
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -4888,6 +5573,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 342
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 342
         }
       ],
       "consecutive_failures": 0,
@@ -4898,6 +5588,11 @@
     {
       "link": "https://raw.githubusercontent.com/sinspired/airport/main/subs/blue-Youtube.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -4956,6 +5651,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -4966,6 +5666,11 @@
     {
       "link": "https://raw.githubusercontent.com/sinspired/airport/main/subs/chengaopan.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -5024,6 +5729,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 56
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 56
         }
       ],
       "consecutive_failures": 0,
@@ -5034,6 +5744,11 @@
     {
       "link": "https://raw.githubusercontent.com/sinspired/airport/main/subs/coldwater-10.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 199
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -5092,6 +5807,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -5102,6 +5822,11 @@
     {
       "link": "https://raw.githubusercontent.com/sinspired/airport/main/subs/hkaa0.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 4
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -5160,6 +5885,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 3
         }
       ],
       "consecutive_failures": 0,
@@ -5170,6 +5900,11 @@
     {
       "link": "https://raw.githubusercontent.com/sinspired/airport/main/subs/peasoft.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -5228,6 +5963,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -5238,6 +5978,11 @@
     {
       "link": "https://raw.githubusercontent.com/sinspired/airport/main/subs/snakem982.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 24
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -5296,6 +6041,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 1443
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 1443
         }
       ],
       "consecutive_failures": 0,
@@ -5306,6 +6056,11 @@
     {
       "link": "https://raw.githubusercontent.com/sinspired/airport/main/subs/trial.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 149
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -5364,6 +6119,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 16
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 16
         }
       ],
       "consecutive_failures": 0,
@@ -5374,6 +6134,11 @@
     {
       "link": "https://raw.githubusercontent.com/sinspired/airport/main/subs/ttvg.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 4
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -5432,6 +6197,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 6
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 6
         }
       ],
       "consecutive_failures": 0,
@@ -5442,6 +6212,11 @@
     {
       "link": "https://raw.githubusercontent.com/sinspired/airport/main/subs/yudou.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 17
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -5500,6 +6275,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 24
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 24
         }
       ],
       "consecutive_failures": 0,
@@ -5534,6 +6314,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 19
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 19
         }
       ],
       "consecutive_failures": 0,
@@ -5558,6 +6343,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 67
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 68
         },
         {
           "ts": "2026-08-20",
@@ -5602,6 +6392,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 47
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 47
         }
       ],
       "consecutive_failures": 0,
@@ -5612,6 +6407,11 @@
     {
       "link": "https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 7
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -5670,6 +6470,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 1
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 1
         }
       ],
       "consecutive_failures": 0,
@@ -5680,6 +6485,11 @@
     {
       "link": "https://raw.githubusercontent.com/xiaoji235/airport-free/main/v2ray.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 2143
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -5738,6 +6548,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 2141
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 2141
         }
       ],
       "consecutive_failures": 0,
@@ -5748,6 +6563,11 @@
     {
       "link": "https://raw.githubusercontent.com/xiaoji235/airport-free/refs/heads/main/v2ray/naidounode.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -5806,6 +6626,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 2
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 2
         }
       ],
       "consecutive_failures": 0,
@@ -5840,6 +6665,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 71
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 67
         }
       ],
       "consecutive_failures": 0,
@@ -5903,6 +6733,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 7
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 7
         }
       ],
       "consecutive_failures": 0,
@@ -5937,6 +6772,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -5947,6 +6787,11 @@
     {
       "link": "https://www.xrayvip.com/free.txt",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 15
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -6007,12 +6852,22 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 12
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 12
         }
       ]
     },
     {
       "id": "sinspired_col",
       "window": [
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 17
+        },
         {
           "ts": "2026-08-20",
           "ok": true,
@@ -6057,6 +6912,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 20
+        },
+        {
+          "ts": "2026-08-20",
+          "ok": true,
+          "count": 18
         },
         {
           "ts": "2026-08-20",
