@@ -10,6 +10,23 @@ from typing import Any
 from ..common.config import Config
 from ..pipeline.engine import RuleStats
 
+# 规则中文名（仅展示层映射，判定逻辑仍用规则 ID）
+_RULE_CN = {
+    "protocol_allowlist": "协议过滤",
+    "validity": "字段有效性",
+    "validity_target": "目标地址",
+    "validity_fields": "字段格式",
+    "server_denylist": "假节点域名",
+    "suspicious_pattern": "投毒形态",
+    "security_vmess": "vmess 安全",
+    "security_vless": "vless 安全",
+    "security_trojan": "trojan 安全",
+    "security_ss": "ss 安全",
+    "security_hysteria2": "hysteria2 安全",
+    "junk_keywords": "垃圾关键词",
+    "region_allowlist": "地区过滤",
+}
+
 
 def generate_report(config: Config, ctx: dict[str, Any]) -> str:
     lines: list[str] = []
@@ -39,7 +56,8 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
         lines.append("| 规则 | 拒绝数 |")
         lines.append("|---|---|")
         for rule_id, count in rows:
-            lines.append(f"| {rule_id} | {count} |")
+            name = _RULE_CN.get(rule_id, rule_id)
+            lines.append(f"| {name} | {count} |")
         lines.append(f"| **合计** | **{sum(count for _, count in rows)}** |")
     else:
         lines.append("（本轮无节点被规则拒绝）")
@@ -47,16 +65,18 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
         lines.append("")
         lines.append("> 规则异常计数：")
         for rule_id, count in stats.errors.items():
-            lines.append(f"> - {rule_id}: {count} 次（fail-closed 已按 REJECT 处理）")
+            name = _RULE_CN.get(rule_id, rule_id)
+            lines.append(f"> - {name}: {count} 次（fail-closed 已按 REJECT 处理）")
     lines.append("")
 
     # 主清单排序表（state 分组 → avg 降序 → success_rate 降序）
     lines.append("## 主清单（active → 冷却 → disabled；组内按 avg 降序）")
     sub_rows = ctx["sub_rows"]
     sub_states = ctx["sub_states"]
+    per_link = ctx["per_link"]
     today = ctx["today"]
-    lines.append("| link | 状态 | success_rate | last | avg |")
-    lines.append("|---|---|---|---|---|")
+    lines.append("| 链接 | 状态 | 成功率 | 最近 | 平均 | 被拒 |")
+    lines.append("|---|---|---|:---:|---|---|")
     for row in sorted(
         sub_rows, key=lambda r: _main_sort_key(sub_states.get(r.link), today)
     ):
@@ -65,15 +85,17 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
         last = _last_count(state)
         avg = _avg_count(state)
         st = _state_str(state)
-        lines.append(f"| {row.link} | {st} | {sr} | {last} | {avg:.1f} |")
+        info = per_link.get(row.link)
+        rejected = info["rejected"] if info else "-"
+        lines.append(f"| {row.link} | {st} | {sr} | {last} | {avg:.1f} | {rejected} |")
     lines.append("")
 
     # 聚合源
     lines.append("## 聚合源（按近 N 次平均拉取数降序）")
     agg_rows = ctx["agg_rows"]
     agg_windows = ctx["agg_windows"]
-    lines.append("| id | link | success_rate | last | avg |")
-    lines.append("|---|---|---|---|---|")
+    lines.append("| id | 链接 | 成功率 | 最近 | 平均 |")
+    lines.append("|---|---|:---:|---|---|")
     for row in sorted(agg_rows, key=lambda r: _agg_avg(agg_windows.get(r["id"])), reverse=True):
         window = agg_windows.get(row["id"]) or []
         total = len(window)

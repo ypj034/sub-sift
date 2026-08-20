@@ -69,6 +69,16 @@ def main(argv: Optional[list[str]] = None) -> int:
     sub_states, agg_windows = state_store.load_states()
     agg_id_by_link = {r["link"]: r["id"] for r in agg_rows}
 
+    # CSV 是事实源：状态文件里已删除的链接/聚合源同步清理，避免残留
+    valid_sub_links = {r.link for r in sub_rows}
+    for link in list(sub_states):
+        if link not in valid_sub_links:
+            del sub_states[link]
+    valid_agg_ids = {r["id"] for r in agg_rows}
+    for agg_id in list(agg_windows):
+        if agg_id not in valid_agg_ids:
+            del agg_windows[agg_id]
+
     # 链接占位符预校验：出现即必须在 config 白名单内，否则配置错误
     allowed = set(config.template_placeholders)
     bad_links = []
@@ -141,7 +151,12 @@ def main(argv: Optional[list[str]] = None) -> int:
             _merge_stats(run_stats, stats)
             all_passed.extend(passed)
             counts = _count_distribution(passed, config)
-            per_link[link] = {"ok": ok, "count": len(passed), "counts": counts}
+            per_link[link] = {
+                "ok": ok,
+                "count": len(passed),
+                "counts": counts,
+                "rejected": stats.total_rejected(),
+            }
             state = sub_states[link]
             sm.record_result(state, ok, len(passed), today)
 

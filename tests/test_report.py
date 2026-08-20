@@ -129,7 +129,9 @@ def test_generate_report_structure(tmp_path):
         "today": today,
         "sub_rows": sub_rows,
         "sub_states": sub_states,
-        "per_link": {},
+        "per_link": {
+            "https://active.example/y": {"ok": True, "count": 150, "rejected": 42},
+        },
         "skipped": 0,
         "merged_count": 0,
         "geoip_source": "-",
@@ -143,18 +145,25 @@ def test_generate_report_structure(tmp_path):
     with open(path, encoding="utf-8") as f:
         content = f.read()
 
-    # 规则计数器：validity 合并为一行，且遵循 config 声明顺序（在 security_vless 之前）
-    assert "| validity | 3 |" in content
-    assert "| security_vless | 1 |" in content
-    assert content.index("| validity |") < content.index("| security_vless |")
+    # 规则计数器：validity 合并为一行（中文名），且遵循 config 声明顺序（在 security_vless 之前）
+    assert "| 字段有效性 | 3 |" in content
+    assert "| vless 安全 | 1 |" in content
+    assert content.index("| 字段有效性 |") < content.index("| vless 安全 |")
     assert "validity_target" not in content
     assert "validity_fields" not in content
     # 合计行 = 所有规则拒绝数之和（3 + 1）
     assert "| **合计** | **4** |" in content
 
-    # 主清单：无 total 列、无重叠度章节、标题正确
+    # 主清单：中文表头、success_rate 列居中、无 total 列、无重叠度章节、标题正确
+    assert "| 链接 | 状态 | 成功率 | 最近 | 平均 | 被拒 |" in content
+    assert "|---|---|---|:---:|---|---|" in content
     assert "total" not in content
     assert "## 重叠度" not in content
     assert "## 主清单（active → 冷却 → disabled；组内按 avg 降序）" in content
     # 排序：active 组在 disabled 组之前
     assert content.index("https://active.example/y") < content.index("https://disabled.example/x")
+    # 被拒列：已拉取的链接显示拒绝数，未拉取显示 -
+    line_active = next(l for l in content.splitlines() if "https://active.example/y" in l)
+    assert line_active.rstrip().endswith("| 42 |")
+    line_disabled = next(l for l in content.splitlines() if "https://disabled.example/x" in l)
+    assert line_disabled.rstrip().endswith("| - |")

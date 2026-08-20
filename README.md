@@ -1,8 +1,8 @@
 # sub-sift
 
-订阅质量管理器（Subscription Quality Manager）：定期从多个聚合源收集订阅链接，拉取节点并依据可配置规则筛选，产出干净、通用的订阅文件，供 Clash / v2ray 等客户端订阅。
+订阅质量管理器（Subscription Quality Manager）：定期从多个聚合源收集订阅链接，拉取节点并依据可配置规则筛选，产出干净、通用的订阅文件。
 
-> 定位：**订阅源质量管理工具**，不是节点测速器，也不是 Clash 管理器。只做"满足规则或删除"的筛选，不做评分/加权。
+> 定位：**订阅源质量管理工具**，不是节点测速器，只做"满足规则或删除"的筛选，不做评分/加权。
 
 ## 特性
 
@@ -17,7 +17,7 @@
 ## 快速开始
 
 ```bash
-pip install -r requirements.txt   # Windows 另需 tzdata（已写入 requirements）
+pip install -r requirements.txt
 python main.py config.yaml --update-geo   # 可选：下载/更新地区判定库
 python main.py config.yaml
 ```
