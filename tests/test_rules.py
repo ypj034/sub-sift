@@ -9,6 +9,8 @@ from modules.rules.security_ss import SecuritySsRule
 from modules.rules.security_trojan import SecurityTrojanRule
 from modules.rules.security_vless import SecurityVlessRule
 from modules.rules.security_vmess import SecurityVmessRule
+from modules.rules.server_denylist import ServerDenylistRule
+from modules.rules.suspicious_pattern import SuspiciousPatternRule
 from modules.rules.validity_fields import ValidityFieldsRule
 from modules.rules.validity_target import ValidityTargetRule
 
@@ -77,6 +79,10 @@ def test_validity_fields_jamming_marker():
     # 大小写不敏感
     mixed = node(protocol="trojan", raw={"password": "xx-banv2ray-yy"})
     assert rule.evaluate(mixed).rejected
+    # URL 编码形式（%42%61%6e%56%32%72%61%79 = BanV2ray）必须同样 REJECT
+    for enc in ("%42%61%6e%56%32%72%61%79", "-----Ban%56%32ray-----"):
+        encoded = node(protocol="trojan", raw={"password": enc})
+        assert rule.evaluate(encoded).rejected
     # 正常密码不受影响
     ok = node(protocol="trojan", raw={"password": "normal-password-123"})
     assert rule.evaluate(ok).rejected is False
@@ -181,3 +187,106 @@ def test_security_rules_skip_other_protocol():
     """安全规则只对自己协议的节点生效。"""
     rule = SecurityVmessRule()
     assert rule.evaluate(node(protocol="trojan", raw={"tls": False})).rejected is False
+
+
+def test_server_denylist_speedtest():
+    """测速站注册域（含任意子域）必须 REJECT，原因 fake_server。"""
+    rule = ServerDenylistRule()
+    for server in ("speedtest.net", "www.speedtest.net", "3.speedtest.net",
+                   "fast.com", "openspeedtest.com", "speedtest.org",
+                   "xxx.speedtestcustom.com"):
+        r = rule.evaluate(node(server=server))
+        assert r.rejected and r.reason == RejectReason.FAKE_SERVER, server
+
+
+def test_server_denylist_connectivity_host():
+    """知名服务子域走完整 host 精确匹配，品牌域本身不受影响。"""
+    rule = ServerDenylistRule()
+    for server in ("speed.cloudflare.com", "connectivitycheck.gstatic.com",
+                   "captive.apple.com", "detectportal.firefox.com",
+                   "cp.cloudflare.com", "neverssl.com"):
+        r = rule.evaluate(node(server=server))
+        assert r.rejected and r.reason == RejectReason.FAKE_SERVER, server
+    # 品牌域与无关子域必须 PASS（防止误杀整个 cloudflare/google/apple）
+    for server in ("cloudflare.com", "sub.cloudflare.com", "workers.dev",
+                   "google.com", "gstatic.com", "apple.com", "clients3.example.com"):
+        assert rule.evaluate(node(server=server)).rejected is False, server
+
+
+def test_server_denylist_poison_domain():
+    """已知投毒域名（A2）必须 REJECT。"""
+    rule = ServerDenylistRule()
+    for server in ("poki-pakipon.ir", "ededed-66.poki-pakipon.ir",
+                   "165c182d369eb7bc.mbcloudy.ir", "omdr.whooisthebest.ir"):
+        r = rule.evaluate(node(server=server))
+        assert r.rejected and r.reason == RejectReason.FAKE_SERVER, server
+
+
+def test_server_denylist_no_substring_false_positive():
+    """绝不用子串匹配：合法注册域带 speedtest 字样不得误伤。"""
+    rule = ServerDenylistRule()
+    for server in ("speedtesty.xyz", "myspeedtest.net", "speedtest-custom.example.com"):
+        assert rule.evaluate(node(server=server)).rejected is False, server
+
+
+def test_server_denylist_skip_ip_and_extra():
+    """IP/IPv6 不适用；config 追加项生效。"""
+    rule = ServerDenylistRule()
+    assert rule.evaluate(node(server="1.2.3.4")).rejected is False
+    assert rule.evaluate(node(server="2001:db8::1")).rejected is False
+
+    rule2 = ServerDenylistRule(
+        extra_domains=["evil.test"],
+        extra_hosts=["speed.example.com"],
+    )
+    assert rule2.evaluate(node(server="sub.evil.test")).rejected
+    assert rule2.evaluate(node(server="speed.example.com")).rejected
+    # 追加项只精确匹配自身，不扩大范围
+    assert rule2.evaluate(node(server="other.example.com")).rejected is False
+    assert rule2.evaluate(node(server="evil2.test")).rejected is False
+
+
+def test_suspicious_pattern_triple_hit():
+    """三条件同时命中（长随机域名 + sni 知名站 + 非标端口）→ REJECT。"""
+    rule = SuspiciousPatternRule()
+    n = node(server="random-random-random12345.example.com", port=9999,
+             raw={"sni": "play.google.com"})
+    r = rule.evaluate(n)
+    assert r.rejected and r.reason == RejectReason.HEURISTIC_POISON
+    # sni 子域同理
+    n2 = node(server="abc-def-ghi-jklm.example.com", port=18020,
+              raw={"sni": "dl.google.com"})
+    assert rule.evaluate(n2).rejected
+
+
+def test_suspicious_pattern_no_false_positive():
+    """任何一条条件不满足都不得 REJECT（正常 Reality/中转节点）。"""
+    rule = SuspiciousPatternRule()
+    long_host = "long-random-host-123456789.example.com"
+    # 条件3 排除：标准端口 443
+    assert rule.evaluate(node(server=long_host, port=443,
+                              raw={"sni": "google.com"})).rejected is False
+    # 条件3 排除：其他常见代理端口
+    assert rule.evaluate(node(server=long_host, port=8080,
+                              raw={"sni": "apple.com"})).rejected is False
+    # 条件1 排除：短域名
+    assert rule.evaluate(node(server="abc.example.com", port=9999,
+                              raw={"sni": "google.com"})).rejected is False
+    # 条件1 排除：server 是 IP（Reality 标准形态）
+    assert rule.evaluate(node(server="1.2.3.4", port=9999,
+                              raw={"sni": "google.com"})).rejected is False
+    # 条件2 排除：sni 是自家域名（CDN 中转形态）
+    assert rule.evaluate(node(server=long_host, port=9999,
+                              raw={"sni": "mydomain.example"})).rejected is False
+    # 条件2 排除：无 sni
+    assert rule.evaluate(node(server=long_host, port=9999)).rejected is False
+
+
+def test_suspicious_pattern_extra():
+    """config 追加标准端口 / 知名站生效。"""
+    rule = SuspiciousPatternRule(extra_std_ports=[9999])
+    assert rule.evaluate(node(server="long-random-host-123456789.example.com",
+                              port=9999, raw={"sni": "google.com"})).rejected is False
+    rule2 = SuspiciousPatternRule(extra_famous_hosts=["example.edu.cn"])
+    assert rule2.evaluate(node(server="long-random-host-123456789.example.com",
+                               port=9999, raw={"sni": "www.example.edu.cn"})).rejected

@@ -31,7 +31,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 51
+=======
+          "count": 49
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -109,7 +113,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 61
+=======
+          "count": 58
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -186,11 +194,19 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 1825
         }
       ],
       "consecutive_failures": 0,
+=======
+          "ok": false,
+          "count": 0
+        }
+      ],
+      "consecutive_failures": 2,
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -372,7 +388,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 639
+=======
+          "count": 623
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -410,7 +430,11 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": false,
+=======
+          "ok": true,
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
           "count": 0
         }
       ],
@@ -762,7 +786,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 76
+=======
+          "count": 74
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -947,7 +975,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 1825
+=======
+          "count": 1780
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -986,7 +1018,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 623
+=======
+          "count": 608
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -1181,7 +1217,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 297
+=======
+          "count": 274
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -1298,7 +1338,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 1
+=======
+          "count": 0
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -1337,7 +1381,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 134
+=======
+          "count": 129
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -1804,11 +1852,19 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 0
         }
       ],
       "consecutive_failures": 0,
+=======
+          "ok": false,
+          "count": 0
+        }
+      ],
+      "consecutive_failures": 3,
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -1844,7 +1900,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 3735
+=======
+          "count": 3696
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -1882,11 +1942,19 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 7090
         }
       ],
       "consecutive_failures": 0,
+=======
+          "ok": false,
+          "count": 0
+        }
+      ],
+      "consecutive_failures": 3,
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -2000,7 +2068,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 46
+=======
+          "count": 45
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -2117,7 +2189,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 1110
+=======
+          "count": 1043
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -2156,7 +2232,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 27
+=======
+          "count": 24
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -2234,7 +2314,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 139
+=======
+          "count": 127
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -2340,11 +2424,16 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 229
+=======
+          "ok": false,
+          "count": 0
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -2379,11 +2468,19 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 230
         }
       ],
       "consecutive_failures": 0,
+=======
+          "ok": false,
+          "count": 0
+        }
+      ],
+      "consecutive_failures": 2,
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -2458,7 +2555,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 9
+=======
+          "count": 6
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -2497,7 +2598,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 9
+=======
+          "count": 6
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -2614,7 +2719,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 195
+=======
+          "count": 181
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -2769,11 +2878,19 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 195
         }
       ],
       "consecutive_failures": 0,
+=======
+          "ok": false,
+          "count": 0
+        }
+      ],
+      "consecutive_failures": 3,
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -2964,11 +3081,16 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 1615
+=======
+          "ok": false,
+          "count": 0
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -3121,7 +3243,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 41
+=======
+          "count": 34
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -3238,7 +3364,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 542
+=======
+          "count": 523
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -3472,7 +3602,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 141
+=======
+          "count": 166
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -3550,7 +3684,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 76
+=======
+          "count": 74
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -3627,11 +3765,19 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 10661
         }
       ],
       "consecutive_failures": 0,
+=======
+          "ok": false,
+          "count": 0
+        }
+      ],
+      "consecutive_failures": 2,
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -3959,7 +4105,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 47
+=======
+          "count": 46
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -4076,7 +4226,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 67
+=======
+          "count": 64
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -4115,7 +4269,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 54
+=======
+          "count": 55
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -4193,7 +4351,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 67
+=======
+          "count": 64
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -4232,7 +4394,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 54
+=======
+          "count": 55
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -4271,7 +4437,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 14
+=======
+          "count": 6
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -4397,7 +4567,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 161
+=======
+          "count": 155
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -4436,7 +4610,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 1612
+=======
+          "count": 1542
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -4514,7 +4692,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 349
+=======
+          "count": 342
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -4592,7 +4774,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 349
+=======
+          "count": 342
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -4748,7 +4934,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 5628
+=======
+          "count": 5475
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -5138,7 +5328,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 3366
+=======
+          "count": 3055
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -5177,7 +5371,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 2343
+=======
+          "count": 2258
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -5215,11 +5413,19 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 2039
         }
       ],
       "consecutive_failures": 0,
+=======
+          "ok": false,
+          "count": 0
+        }
+      ],
+      "consecutive_failures": 3,
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -5489,7 +5695,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 108
+=======
+          "count": 105
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -5567,7 +5777,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 351
+=======
+          "count": 348
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -5996,7 +6210,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 25
+=======
+          "count": 26
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -6034,11 +6252,16 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 1443
+=======
+          "ok": false,
+          "count": 0
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -6074,7 +6297,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 154
+=======
+          "count": 150
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -6269,7 +6496,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 25
+=======
+          "count": 26
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -6347,7 +6578,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 69
+=======
+          "count": 68
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -6502,11 +6737,19 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 2189
         }
       ],
       "consecutive_failures": 0,
+=======
+          "ok": false,
+          "count": 0
+        }
+      ],
+      "consecutive_failures": 2,
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -6541,11 +6784,16 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 2187
+=======
+          "ok": false,
+          "count": 0
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -6659,7 +6907,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 77
+=======
+          "count": 67
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ],
       "consecutive_failures": 0,
@@ -6765,11 +7017,19 @@
         },
         {
           "ts": "2026-08-20",
+<<<<<<< HEAD
           "ok": true,
           "count": 0
         }
       ],
       "consecutive_failures": 0,
+=======
+          "ok": false,
+          "count": 0
+        }
+      ],
+      "consecutive_failures": 3,
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -6846,7 +7106,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 12
+=======
+          "count": 10
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ]
     },
@@ -6881,7 +7145,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 17
+=======
+          "count": 16
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ]
     },
@@ -6916,7 +7184,11 @@
         {
           "ts": "2026-08-20",
           "ok": true,
+<<<<<<< HEAD
           "count": 20
+=======
+          "count": 19
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)
         }
       ]
     }

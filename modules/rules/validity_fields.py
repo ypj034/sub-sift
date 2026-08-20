@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import re
+from urllib.parse import unquote
 
 from ..common.enums import RejectReason, RuleCategory
 from ..common.node import Node
@@ -36,8 +37,13 @@ def _is_placeholder(s: str) -> bool:
 
 
 def _has_jamming_marker(s: str) -> bool:
-    """含已知干扰标记（大小写不敏感，子串匹配）。"""
-    low = (s or "").lower()
+    """含已知干扰标记（大小写不敏感，子串匹配）。
+
+    先做一次 URL 解码：投毒者会用 %42%61%6e%56%32%72%61%79 这类编码
+    形式写 BanV2ray 绕过明文匹配，解码后统一判定。
+    对不含 %xx 的普通字符串 unquote 无副作用。
+    """
+    low = unquote(s or "").lower()
     return any(m in low for m in _JAMMING_MARKERS)
 
 

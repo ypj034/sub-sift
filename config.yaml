@@ -58,6 +58,25 @@ rules:
   validity_fields:
     enabled: true     # 协议字段格式有效性：uuid 格式、password 占位、method 空串
 
+  server_denylist:
+    enabled: true
+    # server 命中公共测试/基准服务或已知投毒域名 → REJECT（原因 fake_server）
+    # 内置清单分三段（见 modules/rules/server_denylist.py）：
+    #   A1-1 测速站（注册域末两段匹配）: speedtest.net / fast.com 等
+    #   A1-2 连通性检测（完整 host 精确匹配）: speed.cloudflare.com 等
+    #   A2 已知投毒域名（注册域末两段匹配）: poki-pakipon.ir 等
+    # 以下为可选追加项，仅追加不覆盖内置清单：
+    extra_domains: []   # 追加注册域（末两段精确匹配，含任意子域）
+    extra_hosts: []     # 追加完整 host（精确匹配，用于知名服务的特定子域）
+
+  suspicious_pattern:
+    enabled: true
+    # 形态启发式识别结构投毒节点（原因 heuristic_poison）：
+    # server 长随机域名(>=20字符) + sni 命中知名站 + 端口非标准 三条件同时命中 → REJECT
+    # 覆盖"换域名"的新投毒（不在 denylist 中的随机注册域）
+    extra_famous_hosts: []  # 追加 sni 知名站（按注册域匹配；内置 google/apple/yahoo/deepl 等）
+    extra_std_ports: []     # 追加标准端口（命中即不触发端口条件，可降低误伤）
+
   security_vmess:
     enabled: true     # vmess 安全：cipher 需在安全集合、必须开启 TLS
 

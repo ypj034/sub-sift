@@ -1,4 +1,10 @@
 ﻿id,link,success_rate,last_count,avg_count,last_run_at
+<<<<<<< HEAD
 sinspired_scan,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/scan.txt,6/6,20,18.5,2026-08-20
 sinspired_col,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/col.txt,6/6,17,16.2,2026-08-20
 sinspired_cm,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/cm.txt,6/6,12,11.2,2026-08-20
+=======
+sinspired_scan,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/scan.txt,6/6,19,18.3,2026-08-20
+sinspired_col,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/col.txt,6/6,16,16.0,2026-08-20
+sinspired_cm,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/cm.txt,6/6,10,10.8,2026-08-20
+>>>>>>> 88e0afb (feat(rules): 拦截假节点/投毒节点（URL编码banv2ray修复 + server_denylist + suspicious_pattern）)

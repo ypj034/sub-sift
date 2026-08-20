@@ -37,6 +37,8 @@ KNOWN_RULES = (
     "protocol_allowlist",
     "validity_target",
     "validity_fields",
+    "server_denylist",
+    "suspicious_pattern",
     "security_vmess",
     "security_vless",
     "security_trojan",
@@ -246,6 +248,22 @@ def _validate(raw: dict) -> Config:
             keywords = kw_cfg.get("keywords", [])
             if not isinstance(keywords, list):
                 err("rules.junk_keywords.keywords 必须是列表（留空 [] = 启用规则但不过滤）")
+
+        dl_cfg = rules.get("server_denylist", {})
+        if dl_cfg.get("enabled", True):
+            for key in ("extra_domains", "extra_hosts"):
+                v = dl_cfg.get(key, [])
+                if not isinstance(v, list):
+                    err(f"rules.server_denylist.{key} 必须是字符串列表（留空 [] = 不追加）")
+
+        sp_cfg = rules.get("suspicious_pattern", {})
+        if sp_cfg.get("enabled", True):
+            v = sp_cfg.get("extra_famous_hosts", [])
+            if not isinstance(v, list):
+                err("rules.suspicious_pattern.extra_famous_hosts 必须是字符串列表（留空 [] = 不追加）")
+            v = sp_cfg.get("extra_std_ports", [])
+            if not isinstance(v, list) or not all(isinstance(p, int) and p > 0 for p in v):
+                err("rules.suspicious_pattern.extra_std_ports 必须是正整数列表（留空 [] = 不追加）")
 
     # output
     output = raw.get("output", {})

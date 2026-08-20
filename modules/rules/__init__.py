@@ -17,6 +17,8 @@ from .security_ss import SecuritySsRule
 from .security_trojan import SecurityTrojanRule
 from .security_vless import SecurityVlessRule
 from .security_vmess import SecurityVmessRule
+from .server_denylist import ServerDenylistRule
+from .suspicious_pattern import SuspiciousPatternRule
 from .validity_fields import ValidityFieldsRule
 from .validity_target import ValidityTargetRule
 
@@ -37,6 +39,18 @@ def build_rules(config: Config, geoip: GeoIP | None = None) -> list[Rule]:
             built.append(ValidityTargetRule())
         elif rid == "validity_fields":
             built.append(ValidityFieldsRule())
+        elif rid == "server_denylist":
+            cfg = config.rules.get("server_denylist", {})
+            built.append(ServerDenylistRule(
+                extra_domains=cfg.get("extra_domains", []),
+                extra_hosts=cfg.get("extra_hosts", []),
+            ))
+        elif rid == "suspicious_pattern":
+            cfg = config.rules.get("suspicious_pattern", {})
+            built.append(SuspiciousPatternRule(
+                extra_famous_hosts=cfg.get("extra_famous_hosts", []),
+                extra_std_ports=cfg.get("extra_std_ports", []),
+            ))
         elif rid == "security_vmess":
             built.append(SecurityVmessRule())
         elif rid == "security_vless":
@@ -65,6 +79,8 @@ __all__ = [
     "SecurityTrojanRule",
     "SecuritySsRule",
     "SecurityHysteria2Rule",
+    "ServerDenylistRule",
+    "SuspiciousPatternRule",
     "JunkKeywordsRule",
     "RegionAllowlistRule",
 ]
