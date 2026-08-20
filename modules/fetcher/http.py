@@ -1,6 +1,7 @@
 """HTTP 拉取工具（标准库 urllib，避免额外依赖）。"""
 from __future__ import annotations
 
+import http.client
 import os
 import urllib.error
 import urllib.request
@@ -30,6 +31,13 @@ def fetch_bytes(url: str, timeout: int = 20) -> bytes:
         raise FetchError(f"网络错误 for {url}: {e.reason}") from e
     except TimeoutError as e:
         raise FetchError(f"超时 for {url}") from e
+    except OSError as e:
+        # 兜底：连接断开/重置/对端关闭等（RemoteDisconnected 等 OSError 子类）
+        # 不在这里收敛为 FetchError 会穿透到调用方导致整个程序退出
+        raise FetchError(f"网络错误 for {url}: {e}") from e
+    except http.client.HTTPException as e:
+        # 兜底：HTTP 协议层异常（IncompleteRead / BadStatusLine 等）
+        raise FetchError(f"HTTP 连接异常 for {url}: {e}") from e
 
 
 def fetch_text(url: str, timeout: int = 20) -> str:
@@ -65,6 +73,10 @@ def download_to_file(url: str, dest: str, timeout: int = 20) -> None:
         raise FetchError(f"网络错误 for {url}: {e.reason}") from e
     except TimeoutError as e:
         raise FetchError(f"超时 for {url}") from e
+    except OSError as e:
+        raise FetchError(f"网络错误 for {url}: {e}") from e
+    except http.client.HTTPException as e:
+        raise FetchError(f"HTTP 连接异常 for {url}: {e}") from e
 
 
 def head_last_modified(url: str, timeout: int = 20) -> str | None:
