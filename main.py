@@ -189,6 +189,7 @@ def main(argv: Optional[list[str]] = None) -> int:
             "per_link": per_link,
             "skipped": skipped,
             "stats": run_stats,
+            "rule_order": [r.rule_id for r in rules],
             "merged_count": len(merged),
             "agg_rows": agg_rows,
             "agg_windows": agg_windows,
@@ -232,18 +233,26 @@ def _merge_stats(target: RuleStats, src: RuleStats) -> None:
 
 
 def _count_distribution(nodes: list[Node], config: Config) -> dict[str, int]:
-    """统计筛选后（去重前）节点的协议/地区分布；无地区节点计入 other。"""
+    """统计筛选后（去重前）节点的协议/地区分布。
+
+    无白名单地区的节点按 server 形态拆分显示：
+    - 域名型 server → other_domain
+    - IP 型 server（未命中白名单地区）→ other_ip
+    """
     counts: dict[str, int] = {col: 0 for col in config.protocol_allowlist}
     for col in config.region_allowlist:
         counts[col] = 0
-    counts["other"] = 0
+    counts["other_domain"] = 0
+    counts["other_ip"] = 0
     for n in nodes:
         if n.protocol in config.protocol_allowlist:
             counts[n.protocol] += 1
         if n.region and n.region in config.region_allowlist:
             counts[n.region] += 1
+        elif not n.is_ip:
+            counts["other_domain"] += 1
         else:
-            counts["other"] += 1
+            counts["other_ip"] += 1
     return counts
 
 

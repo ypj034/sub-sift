@@ -29,15 +29,16 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
         lines.append(f"- 输出文件: {files}")
     lines.append("")
 
-    # 规则计数器
+    # 规则计数器（按规则聚合总数，遵循脚本运行时规则声明顺序）
     lines.append("## 规则计数器")
     stats: RuleStats = ctx["stats"]
-    rows = stats.as_table()
+    order = ctx.get("rule_order") or []
+    rows = stats.as_rule_totals(order) if order else []
     if rows:
-        lines.append("| 规则 | 原因 | 数量 |")
-        lines.append("|---|---|---|")
-        for rule_id, reason, count in sorted(rows, key=lambda x: (-x[2], x[0])):
-            lines.append(f"| {rule_id} | {reason} | {count} |")
+        lines.append("| 规则 | 拒绝数 |")
+        lines.append("|---|---|")
+        for rule_id, count in rows:
+            lines.append(f"| {rule_id} | {count} |")
     else:
         lines.append("（本轮无节点被规则拒绝）")
     if stats.errors:

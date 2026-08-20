@@ -33,12 +33,20 @@ class RuleStats:
         return sum(sum(v.values()) for v in self.counts.values())
 
     def as_table(self) -> list[tuple[str, str, int]]:
-        """返回 [(rule_id, reason, count)] 供报告展示。"""
+        """返回 [(rule_id, reason, count)] 供报告展示（按原因细分）。"""
         rows: list[tuple[str, str, int]] = []
         for rule_id, bucket in self.counts.items():
             for reason, count in bucket.items():
                 rows.append((rule_id, reason, count))
         return rows
+
+    def as_rule_totals(self, order: list[str]) -> list[tuple[str, int]]:
+        """按规则声明顺序返回 [(rule_id, 总拒绝数)]，仅含拒绝数 > 0 的规则。"""
+        totals = {
+            rule_id: sum(bucket.values())
+            for rule_id, bucket in self.counts.items()
+        }
+        return [(rid, totals[rid]) for rid in order if totals.get(rid, 0) > 0]
 
 
 def run_pipeline(nodes: list[Node], rules: list[Rule]) -> tuple[list[Node], RuleStats]:

@@ -94,8 +94,9 @@ modules/
 - 行序：程序按**近 N 次总节点数降序**重写。
 
 ```
-link | sources | success_rate | state | last_node_count | avg_node_count
-     | last_run_at | 各协议列(config 白名单镜像) | 各地区列(config 白名单镜像) | other
+link | sources | success_rate | state | last | avg
+     | last_run_at | 各协议列(config 白名单镜像) | 各地区列(config 白名单镜像)
+     | other_domain | other_ip
 ```
 
 | 列 | 说明 |
@@ -104,12 +105,13 @@ link | sources | success_rate | state | last_node_count | avg_node_count
 | `sources` | 来源血缘多值列表，含 `manual`；裸行（只有 link、sources 空）自动补 `[manual]`；聚合源写入直接带来源 ID |
 | `success_rate` | `成功数/实际执行数`，如 `25/30`；分母 = 实际执行次数 |
 | `state` | `active` / `冷却至 M-D` / `disabled`（状态机当前决策） |
-| `last_node_count` | 最近一次运行的有效节点数（失败 = 0） |
-| `avg_node_count` | 近 N 次平均值（全量平均，只展示不决策） |
+| `last` | 最近一次运行的有效节点数（失败 = 0） |
+| `avg` | 近 N 次平均值（全量平均，只展示不决策） |
 | `last_run_at` | 最近运行时间 |
 | 协议列 | config 协议白名单镜像，值取最近一次运行，失败全 0 |
 | 地区列 | config 地区白名单镜像，值取最近一次运行，失败全 0 |
-| `other` | 域名型/无地区节点兜底列 |
+| `other_domain` | 域名型 server（自动跳过地区判定）的兜底计数 |
+| `other_ip` | IP 型 server 未命中白名单地区的兜底计数 |
 
 ### 3.3 aggregators.csv（聚合源，一行一聚合源）
 

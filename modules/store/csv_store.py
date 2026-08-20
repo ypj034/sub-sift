@@ -15,7 +15,7 @@ from ..common.config import Config
 from ..statemachine.engine import SubscriptionState, WindowEntry
 
 SUB_HEADER_BASE = ["link", "sources", "success_rate", "state",
-                   "last_node_count", "avg_node_count", "last_run_at"]
+                   "last", "avg", "last_run_at"]
 AGG_HEADER = ["id", "link", "success_rate", "last_count", "avg_count", "last_run_at"]
 
 
@@ -87,7 +87,7 @@ def write_subscriptions(
     """
     proto_cols = config.protocol_allowlist
     region_cols = list(config.region_allowlist)
-    header = SUB_HEADER_BASE + proto_cols + region_cols + ["other"]
+    header = SUB_HEADER_BASE + proto_cols + region_cols + ["other_domain", "other_ip"]
 
     def sort_key(row: SubscriptionRow) -> int:
         state = states.get(row.link)
@@ -109,15 +109,16 @@ def write_subscriptions(
                 "sources": ";".join(row.sources),
                 "success_rate": _success_rate_str(state),
                 "state": _state_str(state, today_str),
-                "last_node_count": str(_last_count(state)),
-                "avg_node_count": str(_avg_count(state)),
+                "last": str(_last_count(state)),
+                "avg": str(_avg_count(state)),
                 "last_run_at": _last_ts(state),
             }
             for col in proto_cols:
                 rec[col] = str(counts.get(col, 0))
             for col in region_cols:
                 rec[col] = str(counts.get(col, 0))
-            rec["other"] = str(counts.get("other", 0))
+            rec["other_domain"] = str(counts.get("other_domain", 0))
+            rec["other_ip"] = str(counts.get("other_ip", 0))
             writer.writerow(rec)
 
 

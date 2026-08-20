@@ -119,3 +119,18 @@ def test_rule_stats():
     stats.record_error("r2")
     assert stats.total_rejected() == 3
     assert stats.errors["r2"] == 1
+
+
+def test_rule_stats_as_rule_totals_follows_order():
+    """规则级聚合总数，顺序遵循声明顺序，仅含拒绝数 > 0 的规则。"""
+    stats = RuleStats()
+    stats.record("b_rule", RejectReason.JUNK_KEYWORD)
+    stats.record("a_rule", RejectReason.JUNK_KEYWORD)
+    stats.record("b_rule", RejectReason.INVALID_TARGET)
+    stats.record("b_rule", RejectReason.INVALID_TARGET)
+    stats.record("c_rule", RejectReason.PROTOCOL_NOT_ALLOWED)
+    order = ["a_rule", "b_rule", "c_rule", "d_rule"]
+    rows = stats.as_rule_totals(order)
+    assert rows == [("a_rule", 1), ("b_rule", 3), ("c_rule", 1)]
+    # 空 order 兜底为空列表
+    assert stats.as_rule_totals([]) == []
