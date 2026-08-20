@@ -84,8 +84,8 @@ rules:
     enabled: true
     # 允许的地区白名单；同时作为 subscriptions.csv 的地区分布列数据源
     # 可选值: 任意 ISO 3166-1 alpha-2 地区代码，如 JP, KR, HK, SG, US, TW
-    # 域名型服务器自动跳过地区判定，归入 other_domain 列；
-    # IP 型服务器未命中白名单地区则归入 other_ip 列
+    # 域名型服务器自动跳过地区判定，归入 domain 列；
+    # IP 型服务器未命中白名单地区 → 规则层直接 REJECT（地区过滤），无 other_ip 兜底列
     allow: [JP, KR, HK, SG, US, TW]
 
 # ============================================================

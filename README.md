@@ -36,7 +36,7 @@ https://example.com/sub2,
 运行后产出：
 
 - `output/clash.yaml`、`output/v2ray.txt`、`output/plain.txt` — 订阅文件（格式在 config 的 `output.formats` 配置）
-- `output/report.md` — 本次运行报告（规则拒绝分布、链接状态、重叠度）
+- `output/report.md` — 本次运行报告（规则拒绝分布、主清单排序表、聚合源统计）
 - `data/` 下 CSV 与 state.json 自动更新
 
 模板链接（含占位符）：订阅链接可包含 `{Y}`、`{m}`、`{mm}`、`{d}`、`{dd}`、`{Ymd}`、`{ymd}` 占位符，按当天日期分别替换，如 `https://xxx/uploads/{Y}/{mm}/0-{Ymd}.yaml`。其中 `{ymd}` 是 `{Ymd}` 的小写变体，填充值相同（如 `20260820`）。出现但未列入 `fetcher.template_placeholders` 白名单的占位符会导致启动报错（预校验）。含占位符的原串作为链接身份用于去重/统计，填充后的 URL 仅用于访问。

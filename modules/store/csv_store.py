@@ -1,8 +1,9 @@
 """CSV 读写：subscriptions.csv（动态列）与 aggregators.csv。
 
 DESIGN.md §3.2/§3.3：
-- subscriptions.csv：link + sources 为人工维护列，其余程序维护，按近 N 次总节点数降序
-  动态列 = config 协议白名单镜像 + 地区白名单镜像 + other，随配置增减
+- subscriptions.csv：link + sources 为人工维护列，其余程序维护，
+  按 state（active → 冷却 → disabled）→ avg 降序 → success_rate 降序
+  动态列 = config 协议白名单镜像 + 地区白名单镜像 + domain，随配置增减
 - aggregators.csv：一行一聚合源，按 avg_count 降序
 """
 from __future__ import annotations
@@ -87,15 +88,19 @@ def write_subscriptions(
     """
     proto_cols = config.protocol_allowlist
     region_cols = list(config.region_allowlist)
-    header = SUB_HEADER_BASE + proto_cols + region_cols + ["other_domain", "other_ip"]
+    header = SUB_HEADER_BASE + proto_cols + region_cols + ["domain"]
 
-    def sort_key(row: SubscriptionRow) -> int:
+    today_iso = f"{today_str[:4]}-{today_str[4:6]}-{today_str[6:]}"
+
+    def sort_key(row: SubscriptionRow) -> tuple[int, float, float]:
         state = states.get(row.link)
-        if state is None:
-            return 0
-        return sum(w.count for w in state.window)
+        return (
+            _state_rank(state, today_iso),
+            -_avg_count(state),
+            -_success_rate_value(state),
+        )
 
-    ordered = sorted(rows, key=sort_key, reverse=True)
+    ordered = sorted(rows, key=sort_key)
 
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", encoding="utf-8-sig", newline="") as f:
@@ -110,15 +115,14 @@ def write_subscriptions(
                 "success_rate": _success_rate_str(state),
                 "state": _state_str(state, today_str),
                 "last": str(_last_count(state)),
-                "avg": str(_avg_count(state)),
+                "avg": f"{_avg_count(state):.1f}",
                 "last_run_at": _last_ts(state),
             }
             for col in proto_cols:
                 rec[col] = str(counts.get(col, 0))
             for col in region_cols:
                 rec[col] = str(counts.get(col, 0))
-            rec["other_domain"] = str(counts.get("other_domain", 0))
-            rec["other_ip"] = str(counts.get("other_ip", 0))
+            rec["domain"] = str(counts.get("domain", 0))
             writer.writerow(rec)
 
 
@@ -165,6 +169,26 @@ def write_aggregators(
 # ---------------------------------------------------------------------------
 # 内部辅助
 # ---------------------------------------------------------------------------
+
+def _state_rank(state: SubscriptionState | None, today_iso: str) -> int:
+    """状态分组排序键：active=0 → 冷却=1 → disabled=2。"""
+    if state is None:
+        return 0
+    if state.disabled:
+        return 2
+    if state.cooldown_until and today_iso <= state.cooldown_until:
+        return 1
+    return 0
+
+
+def _success_rate_value(state: SubscriptionState | None) -> float:
+    """success_rate 数值化：ok/total；无执行记录按 0（组内排尾）。"""
+    if state is None or not state.window:
+        return 0.0
+    total = len(state.window)
+    ok = sum(1 for w in state.window if w.ok)
+    return ok / total if total else 0.0
+
 
 def _success_rate_str(state: SubscriptionState | None) -> str:
     if state is None or not state.window:

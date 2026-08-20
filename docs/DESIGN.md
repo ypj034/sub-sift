@@ -91,12 +91,12 @@ modules/
 ### 3.2 subscriptions.csv（主清单，事实源）
 
 - 人工维护列：`link`、`sources`；其余列程序维护。
-- 行序：程序按**近 N 次总节点数降序**重写。
+- 行序：程序按 **state（active → 冷却 → disabled）→ avg 降序 → success_rate 降序** 重写。
 
 ```
 link | sources | success_rate | state | last | avg
      | last_run_at | 各协议列(config 白名单镜像) | 各地区列(config 白名单镜像)
-     | other_domain | other_ip
+     | domain
 ```
 
 | 列 | 说明 |
@@ -110,8 +110,7 @@ link | sources | success_rate | state | last | avg
 | `last_run_at` | 最近运行时间 |
 | 协议列 | config 协议白名单镜像，值取最近一次运行，失败全 0 |
 | 地区列 | config 地区白名单镜像，值取最近一次运行，失败全 0 |
-| `other_domain` | 域名型 server（自动跳过地区判定）的兜底计数 |
-| `other_ip` | IP 型 server 未命中白名单地区的兜底计数 |
+| `domain` | 域名型 server（自动跳过地区判定）的兜底计数；IP 型未命中白名单地区已在规则层 REJECT，故无 `other_ip` 列 |
 
 ### 3.3 aggregators.csv（聚合源，一行一聚合源）
 
@@ -347,7 +346,7 @@ REASON_RULE_ERROR
 - 成功 = 能拉取且非整体解析失败；部分成功 = 成功（产出 = 提取条数）。
 - 平均值 = 近 N 次全量平均（非 EMA），**只展示不参与决策**。
 - 聚合源统计 = 从该源拉出的、主清单中状态正常且有效节点数 > 0 的订阅链接数；多源各自计入；禁用及冷却中的链接不计入。
-- 重复展示用**重叠度指标**，而非逐条列表。
+- 重叠度已弃用：聚合源提供的新链接会沉淀进主清单，下一次运行必然与主清单"重叠"，指标无区分度，不再展示。
 
 ---
 
@@ -369,7 +368,7 @@ REASON_RULE_ERROR
 1. **订阅输出文件**（output/）：通用订阅格式，可被 substore 订阅。
    - 支持格式：`clash`（Clash YAML）、`v2ray`（v2ray base64）、`plain`（明文链接列表，每行一个）。
    - config 的 `output.formats` 选择，可选值写注释。
-2. **report.md**（人读汇总）：运行概览、规则级计数器、排序、重叠度、统计平均值。
+2. **report.md**（人读汇总）：运行概览、规则级计数器（`validity_target`/`validity_fields` 展示合并为 `validity`）、主清单排序表（state → avg → success_rate）、聚合源统计。
 3. 全部数据文件与报告 commit 回 git（mmdb 除外，见 4.3）。
 
 ---

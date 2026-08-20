@@ -1,4 +1,4 @@
-"""report.md 生成：运行概览、规则计数器、排序表、重叠度。
+"""report.md 生成：运行概览、规则计数器、主清单排序表、聚合源统计。
 
 DESIGN.md §9：人读汇总，只展示统计，不做任何决策依据。
 """
@@ -34,6 +34,7 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
     stats: RuleStats = ctx["stats"]
     order = ctx.get("rule_order") or []
     rows = stats.as_rule_totals(order) if order else []
+    rows = _merge_validity_rows(rows)
     if rows:
         lines.append("| 规则 | 拒绝数 |")
         lines.append("|---|---|")
@@ -48,21 +49,22 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
             lines.append(f"> - {rule_id}: {count} 次（fail-closed 已按 REJECT 处理）")
     lines.append("")
 
-    # 主清单排序表
-    lines.append("## 主清单（按近 N 次总节点数降序）")
+    # 主清单排序表（state 分组 → avg 降序 → success_rate 降序）
+    lines.append("## 主清单（active → 冷却 → disabled；组内按 avg 降序）")
     sub_rows = ctx["sub_rows"]
     sub_states = ctx["sub_states"]
-    per_link = ctx["per_link"]
-    lines.append("| link | 状态 | success_rate | last | avg | total |")
-    lines.append("|---|---|---|---|---|---|")
-    for row in sorted(sub_rows, key=lambda r: _total(sub_states.get(r.link)), reverse=True):
+    today = ctx["today"]
+    lines.append("| link | 状态 | success_rate | last | avg |")
+    lines.append("|---|---|---|---|---|")
+    for row in sorted(
+        sub_rows, key=lambda r: _main_sort_key(sub_states.get(r.link), today)
+    ):
         state = sub_states.get(row.link)
         sr = _success_rate(state)
         last = _last_count(state)
         avg = _avg_count(state)
-        total = _total(state)
         st = _state_str(state)
-        lines.append(f"| {row.link} | {st} | {sr} | {last} | {avg:.1f} | {total} |")
+        lines.append(f"| {row.link} | {st} | {sr} | {last} | {avg:.1f} |")
     lines.append("")
 
     # 聚合源
@@ -82,15 +84,6 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
         )
     lines.append("")
 
-    # 重叠度
-    lines.append("## 重叠度")
-    multi = sum(1 for r in sub_rows if len(r.sources) >= 2)
-    total_rows = len(sub_rows)
-    lines.append(f"- 被多个来源（≥2）拉到的订阅链接: {multi} / {total_rows}")
-    if total_rows:
-        lines.append(f"- 占比: {multi / total_rows * 100:.1f}%")
-    lines.append("")
-
     content = "\n".join(lines)
     directory = config.output_directory
     os.makedirs(directory, exist_ok=True)
@@ -104,10 +97,38 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
 # 内部辅助（与 csv_store / statemachine 的统计口径保持一致）
 # ---------------------------------------------------------------------------
 
-def _total(state) -> int:
-    if state is None or not state.window:
+def _merge_validity_rows(rows: list[tuple[str, int]]) -> list[tuple[str, int]]:
+    """展示层合并 validity_target + validity_fields 为一行 validity（规则引擎保持独立）。"""
+    merged: dict[str, int] = {}
+    for rule_id, count in rows:
+        name = "validity" if rule_id in ("validity_target", "validity_fields") else rule_id
+        merged[name] = merged.get(name, 0) + count
+    return list(merged.items())
+
+
+def _state_rank(state, today) -> int:
+    """状态分组排序键：active=0 → 冷却=1 → disabled=2。"""
+    if state is None:
         return 0
-    return sum(w.count for w in state.window)
+    if state.disabled:
+        return 2
+    if state.cooldown_until and today.isoformat() <= state.cooldown_until:
+        return 1
+    return 0
+
+
+def _success_rate_value(state) -> float:
+    """success_rate 数值化：ok/total；无执行记录按 0（组内排尾）。"""
+    if state is None or not state.window:
+        return 0.0
+    total = len(state.window)
+    ok = sum(1 for w in state.window if w.ok)
+    return ok / total if total else 0.0
+
+
+def _main_sort_key(state, today) -> tuple[int, float, float]:
+    """主清单排序键：state 分组 → avg 降序 → success_rate 降序。"""
+    return (_state_rank(state, today), -_avg_count(state), -_success_rate_value(state))
 
 
 def _success_rate(state) -> str:
