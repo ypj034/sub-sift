@@ -143,7 +143,16 @@ def write_aggregators(
             return 0.0
         return sum(w.count for w in window) / len(window)
 
-    ordered = sorted(rows, key=sort_key, reverse=True)
+    # 按 id 去重：防止 CSV 历史遗留重复行导致重复拉取/重复展示
+    seen: set[str] = set()
+    unique_rows: list[dict[str, str]] = []
+    for row in rows:
+        if row["id"] in seen:
+            continue
+        seen.add(row["id"])
+        unique_rows.append(row)
+
+    ordered = sorted(unique_rows, key=sort_key, reverse=True)
 
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", encoding="utf-8-sig", newline="") as f:
