@@ -155,6 +155,7 @@ def main(argv: Optional[list[str]] = None) -> int:
             per_link[link] = {
                 "ok": ok,
                 "count": len(passed),
+                "raw": len(nodes),
                 "counts": counts,
                 "rejected": stats.total_rejected(),
                 "rule_counts": dict(stats.as_rule_totals(rule_order)),

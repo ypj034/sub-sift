@@ -4,6 +4,7 @@ from datetime import date
 
 from modules.common.config import Config, load_config
 from modules.report.generator import (
+    _effective_rate,
     _main_sort_key,
     _rule_group_cells,
     _state_rank,
@@ -63,6 +64,19 @@ def test_rule_group_cells():
     assert _rule_group_cells(info) == ["30", "12", "0", "0", "42"]
     # 无 rule_counts → 各列 0，合计取 rejected
     assert _rule_group_cells({"rejected": 5}) == ["0", "0", "0", "0", "5"]
+
+
+def test_effective_rate():
+    # 正常：150/200 = 75.0%
+    assert _effective_rate({"count": 150, "raw": 200}) == "75.0%"
+    # 全被拒：0/100 = 0.0%
+    assert _effective_rate({"count": 0, "raw": 100}) == "0.0%"
+    # 原始节点为 0 → "-"（分母无意义）
+    assert _effective_rate({"count": 0, "raw": 0}) == "-"
+    # 未拉取 → 留空
+    assert _effective_rate(None) == ""
+    # 缺字段按 0 处理
+    assert _effective_rate({}) == "-"
 
 
 def test_state_rank_group_order():
@@ -127,6 +141,7 @@ def test_generate_report_structure(tmp_path):
             "https://active.example/y": {
                 "ok": True,
                 "count": 150,
+                "raw": 200,
                 "rejected": 42,
                 "rule_counts": {"validity_target": 30, "security_vless": 12},
             },
@@ -148,19 +163,23 @@ def test_generate_report_structure(tmp_path):
     assert "validity_target" not in content
     assert "validity_fields" not in content
 
-    # 主清单：中文表头、状态/成功率列居中、规则分组列、无 total 列、无重叠度章节
-    assert "| 链接 | 状态 | 成功率 | 最近 | 平均 | 无效 | 非加密 | 排除协议 | 排除地区 | 排除合计 |" in content
-    assert "| --- | :---: | :---: | --- | --- | --- | --- | --- | --- | --- |" in content
+    # 主清单：中文表头、状态/成功率/有效率列居中、规则分组列、无 total 列、无重叠度章节
+    assert "| 链接 | 状态 | 成功率 | 有效率 | 平均 | 最近 | 无效 | 非加密 | 排除协议 | 排除地区 | 排除合计 |" in content
+    assert "| --- | :---: | :---: | :---: | --- | --- | --- | --- | --- | --- | --- |" in content
     assert "total" not in content
     assert "## 重叠度" not in content
     assert "## 主清单（active → 冷却 → disabled；组内按 avg 降序）" in content
     # 排序：active 组在 disabled 组之前
     assert content.index("https://active.example/y") < content.index("https://disabled.example/x")
 
-    # 规则列：已拉取链接显示分组聚合值，未拉取（禁用）链接留空
+    # 已拉取链接：有效率 = 150/200 = 75.0%；规则列分组聚合值
+    # 列序（split 去空元素后）：1链接 2状态 3成功率 4有效率 5平均 6最近 7无效 8非加密 9排除协议 10排除地区 11排除合计
     line_active = next(l for l in content.splitlines() if "https://active.example/y" in l)
     cells_active = [c.strip() for c in line_active.split("|")]
-    assert cells_active[6:11] == ["30", "12", "0", "0", "42"]
+    assert cells_active[4] == "75.0%"
+    assert cells_active[7:12] == ["30", "12", "0", "0", "42"]
+    # 未拉取（禁用）链接：有效率留空，规则列全部留空
     line_disabled = next(l for l in content.splitlines() if "https://disabled.example/x" in l)
     cells_disabled = [c.strip() for c in line_disabled.split("|")]
-    assert cells_disabled[6:11] == ["", "", "", "", ""]
+    assert cells_disabled[4] == ""
+    assert cells_disabled[7:12] == ["", "", "", "", ""]

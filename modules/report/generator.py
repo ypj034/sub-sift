@@ -43,19 +43,20 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
     sub_states = ctx["sub_states"]
     per_link = ctx["per_link"]
     today = ctx["today"]
-    lines.append("| 链接 | 状态 | 成功率 | 最近 | 平均 | 无效 | 非加密 | 排除协议 | 排除地区 | 排除合计 |")
-    lines.append("| --- | :---: | :---: | --- | --- | --- | --- | --- | --- | --- |")
+    lines.append("| 链接 | 状态 | 成功率 | 有效率 | 平均 | 最近 | 无效 | 非加密 | 排除协议 | 排除地区 | 排除合计 |")
+    lines.append("| --- | :---: | :---: | :---: | --- | --- | --- | --- | --- | --- | --- |")
     for row in sorted(
         sub_rows, key=lambda r: _main_sort_key(sub_states.get(r.link), today)
     ):
         state = sub_states.get(row.link)
         sr = _success_rate(state)
+        eff = _effective_rate(per_link.get(row.link))
         last = _last_count(state)
         avg = _avg_count(state)
         st = _state_str(state)
         info = per_link.get(row.link)
         cells = " | ".join(_rule_group_cells(info))
-        lines.append(f"| {row.link} | {st} | {sr} | {last} | {avg:.1f} | {cells} |")
+        lines.append(f"| {row.link} | {st} | {sr} | {eff} | {avg:.1f} | {last} | {cells} |")
     lines.append("")
 
     # 聚合源
@@ -100,6 +101,20 @@ def _rule_group_cells(info: dict[str, Any] | None) -> list[str]:
     cells = [str(sum(rc.get(rid, 0) for rid in _RULE_GROUP_RULES[col])) for col in _RULE_GROUP_ORDER]
     cells.append(str(info.get("rejected", 0)))
     return cells
+
+
+def _effective_rate(info: dict[str, Any] | None) -> str:
+    """本轮有效率 = 有效节点数 / 解析出的原始节点数（百分比，1 位小数）。
+
+    未拉取（None）→ 留空；原始节点数为 0 → "-"（分母无意义）。
+    """
+    if info is None:
+        return ""
+    raw = info.get("raw") or 0
+    count = info.get("count") or 0
+    if raw <= 0:
+        return "-"
+    return f"{count / raw * 100:.1f}%"
 
 
 def _state_rank(state, today) -> int:
