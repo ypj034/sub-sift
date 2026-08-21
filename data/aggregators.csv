@@ -1,4 +1,4 @@
 ﻿id,link,pass_rate,last_count,avg_count,last_run
-sinspired_scan,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/scan.txt,12/12,21,19.7,2026-08-21
-sinspired_col,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/col.txt,12/12,17,17.0,2026-08-21
-sinspired_cm,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/cm.txt,12/12,13,12.1,2026-08-21
+sinspired_scan,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/scan.txt,13/13,20,19.7,2026-08-22
+sinspired_col,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/col.txt,13/13,17,17.0,2026-08-22
+sinspired_cm,https://raw.githubusercontent.com/sinspired/airport/main/subs/merged/cm.txt,13/13,13,12.2,2026-08-22
