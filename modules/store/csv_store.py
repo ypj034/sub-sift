@@ -2,7 +2,7 @@
 
 DESIGN.md §3.2/§3.3：
 - subscriptions.csv：link + sources 为人工维护列，其余程序维护，
-  按 state（active → 冷却 → disabled）→ avg 降序 → success_rate 降序
+  按 state（active → 冷却 → disabled）→ avg 降序 → pass_rate 降序
   动态列 = config 协议白名单镜像 + 地区白名单镜像 + domain，随配置增减
 - aggregators.csv：一行一聚合源，按 avg_count 降序
 """
@@ -15,9 +15,8 @@ from dataclasses import dataclass, field
 from ..common.config import Config
 from ..statemachine.engine import SubscriptionState, WindowEntry
 
-SUB_HEADER_BASE = ["link", "sources", "success_rate", "state",
-                   "last", "avg", "last_run_at"]
-AGG_HEADER = ["id", "link", "success_rate", "last_count", "avg_count", "last_run_at"]
+SUB_HEADER_BASE = ["link", "sources", "state", "pass_rate", "avg", "last"]
+AGG_HEADER = ["id", "link", "pass_rate", "last_count", "avg_count", "last_run"]
 
 
 @dataclass
@@ -88,7 +87,7 @@ def write_subscriptions(
     """
     proto_cols = config.protocol_allowlist
     region_cols = list(config.region_allowlist)
-    header = SUB_HEADER_BASE + proto_cols + region_cols + ["domain"]
+    header = SUB_HEADER_BASE + proto_cols + region_cols + ["domain", "last_run"]
 
     today_iso = f"{today_str[:4]}-{today_str[4:6]}-{today_str[6:]}"
 
@@ -112,17 +111,17 @@ def write_subscriptions(
             rec = {
                 "link": row.link,
                 "sources": ";".join(row.sources),
-                "success_rate": _success_rate_str(state),
                 "state": _state_str(state, today_str),
-                "last": str(_last_count(state)),
+                "pass_rate": _success_rate_str(state),
                 "avg": f"{_avg_count(state):.1f}",
-                "last_run_at": _last_ts(state),
+                "last": str(_last_count(state)),
             }
             for col in proto_cols:
                 rec[col] = str(counts.get(col, 0))
             for col in region_cols:
                 rec[col] = str(counts.get(col, 0))
             rec["domain"] = str(counts.get("domain", 0))
+            rec["last_run"] = _last_ts(state)
             writer.writerow(rec)
 
 
@@ -168,10 +167,10 @@ def write_aggregators(
             writer.writerow({
                 "id": row["id"],
                 "link": row["link"],
-                "success_rate": f"{ok}/{total}" if total else "-",
+                "pass_rate": f"{ok}/{total}" if total else "-",
                 "last_count": str(last_count),
                 "avg_count": f"{avg:.1f}",
-                "last_run_at": last_ts,
+                "last_run": last_ts,
             })
 
 
@@ -191,7 +190,7 @@ def _state_rank(state: SubscriptionState | None, today_iso: str) -> int:
 
 
 def _success_rate_value(state: SubscriptionState | None) -> float:
-    """success_rate 数值化：ok/total；无执行记录按 0（组内排尾）。"""
+    """pass_rate 数值化：ok/total；无执行记录按 0（组内排尾）。"""
     if state is None or not state.window:
         return 0.0
     total = len(state.window)
@@ -213,7 +212,7 @@ def _state_str(state: SubscriptionState | None, today_str: str) -> str:
     if state.disabled:
         return "disabled"
     if state.cooldown_until:
-        return f"冷却至 {state.cooldown_until[5:].replace('-', '-')}"
+        return f"cd_{state.cooldown_until[5:].replace('-', '')}"
     return "active"
 
 

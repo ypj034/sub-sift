@@ -91,44 +91,44 @@ modules/
 ### 3.2 subscriptions.csv（主清单，事实源）
 
 - 人工维护列：`link`、`sources`；其余列程序维护。
-- 行序：程序按 **state（active → 冷却 → disabled）→ avg 降序 → success_rate 降序** 重写。
+- 行序：程序按 **state（active → 冷却 → disabled）→ avg 降序 → pass_rate 降序** 重写。
 
 ```
-link | sources | success_rate | state | last | avg
-     | last_run_at | 各协议列(config 白名单镜像) | 各地区列(config 白名单镜像)
-     | domain
+link | sources | state | pass_rate | avg | last
+     | 各协议列(config 白名单镜像) | 各地区列(config 白名单镜像) | domain
+     | last_run
 ```
 
 | 列 | 说明 |
 |---|---|
 | `link` | 订阅链接，唯一键 |
 | `sources` | 来源血缘多值列表，含 `manual`；裸行（只有 link、sources 空）自动补 `[manual]`；聚合源写入直接带来源 ID |
-| `success_rate` | `成功数/实际执行数`，如 `25/30`；分母 = 实际执行次数 |
-| `state` | `active` / `冷却至 M-D` / `disabled`（状态机当前决策） |
-| `last` | 最近一次运行的有效节点数（失败 = 0） |
+| `state` | `active` / `cd_MMDD` / `disabled`（状态机当前决策；冷却格式如 `cd_0825`） |
+| `pass_rate` | `成功数/实际执行数`，如 `25/30`；分母 = 实际执行次数 |
 | `avg` | 近 N 次平均值（全量平均，只展示不决策） |
-| `last_run_at` | 最近运行时间 |
+| `last` | 最近一次运行的有效节点数（失败 = 0） |
 | 协议列 | config 协议白名单镜像，值取最近一次运行，失败全 0 |
 | 地区列 | config 地区白名单镜像，值取最近一次运行，失败全 0 |
 | `domain` | 域名型 server（自动跳过地区判定）的兜底计数；IP 型未命中白名单地区已在规则层 REJECT，故无 `other_ip` 列 |
+| `last_run` | 最近运行时间（最右列） |
 
 ### 3.3 aggregators.csv（聚合源，一行一聚合源）
 
 - 行序：按 `avg_count` 降序。
-- **无状态机**：失败不冷却不禁用，靠 `success_rate` 人工判断维护。
+- **无状态机**：失败不冷却不禁用，靠 `pass_rate` 人工判断维护。
 
 ```
-id | link | 状态(25/30) | last_count | avg_count | last_run_at
+id | link | pass_rate | last_count | avg_count | last_run
 ```
 
 | 列 | 说明 |
 |---|---|
 | `id` | 英文短 ID，唯一键，必填 |
 | `link` | 聚合源 URL |
-| `状态` | `成功数/实际执行数`，无冷却禁用标记 |
+| `pass_rate` | `成功数/实际执行数`，无冷却禁用标记 |
 | `last_count` | 最近一次拉取出的订阅链接数（失败 = 0） |
 | `avg_count` | 近 N 次平均拉取数（口径见 §7），只展示不决策 |
-| `last_run_at` | 最近运行时间 |
+| `last_run` | 最近运行时间 |
 
 ### 3.4 subscription-state.json（程序独占）
 
@@ -346,6 +346,8 @@ REASON_RULE_ERROR
 - 成功 = 能拉取且非整体解析失败；部分成功 = 成功（产出 = 提取条数）。
 - 平均值 = 近 N 次全量平均（非 EMA），**只展示不参与决策**。
 - 聚合源统计 = 从该源拉出的、主清单中状态正常且有效节点数 > 0 的订阅链接数；多源各自计入；禁用及冷却中的链接不计入。
+- 主清单重复率 = 该链接有效节点中指纹全局出现次数 > 1 的占比（界定与去重规则一致），仅展示（report.md），不落盘。
+- 聚合源重复率 = 该源本次拉取出的订阅链接（去重后）中，被其他聚合源也拉到的占比；仅限聚合源本次拉取的链接间判定，不涉及主清单已有链接；仅展示（report.md），不落盘。
 - 重叠度已弃用：聚合源提供的新链接会沉淀进主清单，下一次运行必然与主清单"重叠"，指标无区分度，不再展示。
 
 ---
@@ -368,7 +370,7 @@ REASON_RULE_ERROR
 1. **订阅输出文件**（output/）：通用订阅格式，可被 substore 订阅。
    - 支持格式：`clash`（Clash YAML）、`v2ray`（v2ray base64）、`plain`（明文链接列表，每行一个）。
    - config 的 `output.formats` 选择，可选值写注释。
-2. **report.md**（人读汇总）：运行概览、规则级计数器（`validity_target`/`validity_fields` 展示合并为 `validity`）、主清单排序表（state → avg → success_rate）、聚合源统计。
+2. **report.md**（人读汇总）：运行概览、主清单排序表（state → avg → pass_rate，含有效率/重复率/规则分组列）、聚合源统计（含重复率）。
 3. 全部数据文件与报告 commit 回 git（mmdb 除外，见 4.3）。
 
 ---

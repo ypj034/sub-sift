@@ -24,7 +24,7 @@ from modules.common.geoip import GeoIP
 from modules.common.node import Node
 from modules.fetcher.aggregator import fetch_all_aggregators
 from modules.fetcher.subscription import extract_placeholders, fetch_subscription_nodes
-from modules.pipeline import RuleStats, deduplicate, rename_unique, run_pipeline
+from modules.pipeline import RuleStats, deduplicate, fingerprint, rename_unique, run_pipeline
 from modules.report.generator import generate_report
 from modules.rules import build_rules
 from modules.statemachine.engine import StateMachine, SubscriptionState, WindowEntry
@@ -159,9 +159,20 @@ def main(argv: Optional[list[str]] = None) -> int:
                 "counts": counts,
                 "rejected": stats.total_rejected(),
                 "rule_counts": dict(stats.as_rule_totals(rule_order)),
+                "fps": [fingerprint(n) for n in passed],
             }
             state = sub_states[link]
             sm.record_result(state, ok, len(passed), today)
+
+    # ------------------------------------ 4.5 主清单重复率（不落盘，仅供 report）
+    # 口径：本轮各链接有效节点中，指纹在全局出现次数 > 1 的占比（界定与去重规则一致）
+    fp_counts: dict[str, int] = {}
+    for info in per_link.values():
+        for fp in info["fps"]:
+            fp_counts[fp] = fp_counts.get(fp, 0) + 1
+    for info in per_link.values():
+        info["dup"] = sum(1 for fp in info["fps"] if fp_counts[fp] > 1)
+        del info["fps"]
 
     # -------------------------------------------- 5. 去重/改名 → 输出文件
     merged = deduplicate(all_passed)
@@ -190,6 +201,26 @@ def main(argv: Optional[list[str]] = None) -> int:
         if len(window) > config.window_size:
             del window[: len(window) - config.window_size]
 
+    # ------------------------------------ 6.5 聚合源重复率（不落盘，仅供 report）
+    # 口径：该源本次拉取出的订阅链接（去重后）中，被其他聚合源也拉到的占比。
+    # 仅限聚合源本次拉取的链接间判定，不涉及主清单已有订阅链接。
+    agg_link_sets: dict[str, set[str]] = {}
+    for link, result in agg_results.items():
+        agg_id = agg_id_by_link.get(link)
+        if agg_id is None or isinstance(result, Exception):
+            continue
+        agg_link_sets[agg_id] = set(result)
+    link_freq: dict[str, int] = {}
+    for links in agg_link_sets.values():
+        for found in links:
+            link_freq[found] = link_freq.get(found, 0) + 1
+    agg_dup: dict[str, tuple[int, int]] = {}
+    for agg_id, links in agg_link_sets.items():
+        agg_dup[agg_id] = (
+            sum(1 for found in links if link_freq[found] > 1),
+            len(links),
+        )
+
     # -------------------------------------------- 7. 写 CSV / state / report
     run_counts = {link: info["counts"] for link, info in per_link.items()}
     csv_store.write_subscriptions(
@@ -210,6 +241,7 @@ def main(argv: Optional[list[str]] = None) -> int:
             "merged_count": len(merged),
             "agg_rows": agg_rows,
             "agg_windows": agg_windows,
+            "agg_dup": agg_dup,
             "geoip_source": geoip.source,
             "output_files": written,
         },

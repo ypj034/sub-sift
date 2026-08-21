@@ -43,36 +43,40 @@ def generate_report(config: Config, ctx: dict[str, Any]) -> str:
     sub_states = ctx["sub_states"]
     per_link = ctx["per_link"]
     today = ctx["today"]
-    lines.append("| 链接 | 状态 | 成功率 | 有效率 | 平均 | 最近 | 无效 | 非加密 | 排除协议 | 排除地区 | 排除合计 |")
-    lines.append("| --- | :---: | :---: | :---: | --- | --- | --- | --- | --- | --- | --- |")
+    lines.append("| 链接 | 状态 | 成功率 | 有效率 | 重复率 | 平均 | 最近 | 无效 | 非加密 | 排除协议 | 排除地区 | 排除合计 |")
+    lines.append("| --- | :---: | :---: | :---: | :---: | --- | --- | --- | --- | --- | --- |")
     for row in sorted(
         sub_rows, key=lambda r: _main_sort_key(sub_states.get(r.link), today)
     ):
         state = sub_states.get(row.link)
         sr = _success_rate(state)
         eff = _effective_rate(per_link.get(row.link))
+        dup = _duplicate_rate(per_link.get(row.link))
         last = _last_count(state)
         avg = _avg_count(state)
         st = _state_str(state)
         info = per_link.get(row.link)
         cells = " | ".join(_rule_group_cells(info))
-        lines.append(f"| {row.link} | {st} | {sr} | {eff} | {avg:.1f} | {last} | {cells} |")
+        lines.append(f"| {row.link} | {st} | {sr} | {eff} | {dup} | {avg:.1f} | {last} | {cells} |")
     lines.append("")
 
     # 聚合源
     lines.append("## 聚合源（按近 N 次平均拉取数降序）")
     agg_rows = ctx["agg_rows"]
     agg_windows = ctx["agg_windows"]
-    lines.append("| id | 链接 | 成功率 | 最近 | 平均 |")
-    lines.append("|---|---|:---:|---|---|")
+    lines.append("| id | 链接 | 成功率 | 重复率 | 最近 | 平均 |")
+    lines.append("|---|---|:---:|:---:|---|---|")
+    agg_dup = ctx.get("agg_dup") or {}
     for row in sorted(agg_rows, key=lambda r: _agg_avg(agg_windows.get(r["id"])), reverse=True):
         window = agg_windows.get(row["id"]) or []
         total = len(window)
         ok = sum(1 for w in window if w.ok)
         last = window[-1].count if window else 0
         avg = (sum(w.count for w in window) / total) if total else 0.0
+        dup_n, dup_total = agg_dup.get(row["id"], (0, 0))
+        dup_rate = f"{dup_n / dup_total * 100:.1f}%" if dup_total else "-"
         lines.append(
-            f"| {row['id']} | {row['link']} | {f'{ok}/{total}' if total else '-'} | {last} | {avg:.1f} |"
+            f"| {row['id']} | {row['link']} | {f'{ok}/{total}' if total else '-'} | {dup_rate} | {last} | {avg:.1f} |"
         )
     lines.append("")
 
@@ -115,6 +119,20 @@ def _effective_rate(info: dict[str, Any] | None) -> str:
     if raw <= 0:
         return "-"
     return f"{count / raw * 100:.1f}%"
+
+
+def _duplicate_rate(info: dict[str, Any] | None) -> str:
+    """本轮重复率 = 有效节点中指纹全局出现次数 > 1 的占比（口径与去重规则一致）。
+
+    未拉取（None）→ 留空；有效节点数为 0 → "-"（分母无意义）。
+    """
+    if info is None:
+        return ""
+    count = info.get("count") or 0
+    if count <= 0:
+        return "-"
+    dup = info.get("dup") or 0
+    return f"{dup / count * 100:.1f}%"
 
 
 def _state_rank(state, today) -> int:
@@ -166,7 +184,7 @@ def _state_str(state) -> str:
     if state.disabled:
         return "disabled"
     if state.cooldown_until:
-        return f"冷却至 {state.cooldown_until[5:]}"
+        return f"cd_{state.cooldown_until[5:].replace('-', '')}"
     return "active"
 
 

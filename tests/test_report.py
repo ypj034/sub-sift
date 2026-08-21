@@ -4,6 +4,7 @@ from datetime import date
 
 from modules.common.config import Config, load_config
 from modules.report.generator import (
+    _duplicate_rate,
     _effective_rate,
     _main_sort_key,
     _rule_group_cells,
@@ -79,6 +80,19 @@ def test_effective_rate():
     assert _effective_rate({}) == "-"
 
 
+def test_duplicate_rate():
+    # 正常：30/150 = 20.0%
+    assert _duplicate_rate({"count": 150, "dup": 30}) == "20.0%"
+    # 无重复：0/150 = 0.0%
+    assert _duplicate_rate({"count": 150, "dup": 0}) == "0.0%"
+    # 有效节点为 0 → "-"（分母无意义）
+    assert _duplicate_rate({"count": 0}) == "-"
+    # 未拉取 → 留空
+    assert _duplicate_rate(None) == ""
+    # 缺 dup 按 0 处理
+    assert _duplicate_rate({"count": 10}) == "0.0%"
+
+
 def test_state_rank_group_order():
     today = date(2026, 8, 20)
     active = SubscriptionState(link="a")
@@ -142,6 +156,7 @@ def test_generate_report_structure(tmp_path):
                 "ok": True,
                 "count": 150,
                 "raw": 200,
+                "dup": 30,
                 "rejected": 42,
                 "rule_counts": {"validity_target": 30, "security_vless": 12},
             },
@@ -151,6 +166,7 @@ def test_generate_report_structure(tmp_path):
         "geoip_source": "-",
         "agg_rows": [],
         "agg_windows": {},
+        "agg_dup": {},
         "output_files": {"plain": "plain.txt"},
     }
     path = generate_report(cfg, ctx)
@@ -163,23 +179,70 @@ def test_generate_report_structure(tmp_path):
     assert "validity_target" not in content
     assert "validity_fields" not in content
 
-    # 主清单：中文表头、状态/成功率/有效率列居中、规则分组列、无 total 列、无重叠度章节
-    assert "| 链接 | 状态 | 成功率 | 有效率 | 平均 | 最近 | 无效 | 非加密 | 排除协议 | 排除地区 | 排除合计 |" in content
-    assert "| --- | :---: | :---: | :---: | --- | --- | --- | --- | --- | --- | --- |" in content
+    # 主清单：中文表头、状态/成功率/有效率/重复率列居中、规则分组列、无 total 列、无重叠度章节
+    assert "| 链接 | 状态 | 成功率 | 有效率 | 重复率 | 平均 | 最近 | 无效 | 非加密 | 排除协议 | 排除地区 | 排除合计 |" in content
+    assert "| --- | :---: | :---: | :---: | :---: | --- | --- | --- | --- | --- | --- |" in content
     assert "total" not in content
     assert "## 重叠度" not in content
     assert "## 主清单（active → 冷却 → disabled；组内按 avg 降序）" in content
     # 排序：active 组在 disabled 组之前
     assert content.index("https://active.example/y") < content.index("https://disabled.example/x")
 
-    # 已拉取链接：有效率 = 150/200 = 75.0%；规则列分组聚合值
-    # 列序（split 去空元素后）：1链接 2状态 3成功率 4有效率 5平均 6最近 7无效 8非加密 9排除协议 10排除地区 11排除合计
+    # 已拉取链接：有效率 = 150/200 = 75.0%；重复率 = 30/150 = 20.0%；规则列分组聚合值
+    # 列序（split 去空元素后）：1链接 2状态 3成功率 4有效率 5重复率 6平均 7最近
+    #                         8无效 9非加密 10排除协议 11排除地区 12排除合计
     line_active = next(l for l in content.splitlines() if "https://active.example/y" in l)
     cells_active = [c.strip() for c in line_active.split("|")]
     assert cells_active[4] == "75.0%"
-    assert cells_active[7:12] == ["30", "12", "0", "0", "42"]
-    # 未拉取（禁用）链接：有效率留空，规则列全部留空
+    assert cells_active[5] == "20.0%"
+    assert cells_active[8:13] == ["30", "12", "0", "0", "42"]
+    # 未拉取（禁用）链接：有效率/重复率留空，规则列全部留空
     line_disabled = next(l for l in content.splitlines() if "https://disabled.example/x" in l)
     cells_disabled = [c.strip() for c in line_disabled.split("|")]
     assert cells_disabled[4] == ""
-    assert cells_disabled[7:12] == ["", "", "", "", ""]
+    assert cells_disabled[5] == ""
+    assert cells_disabled[8:13] == ["", "", "", "", ""]
+
+
+def test_generate_report_agg_dup(tmp_path):
+    cfg = _load_cfg(tmp_path)
+    today = date(2026, 8, 20)
+    agg_rows = [
+        {"id": "a", "link": "https://a.example"},
+        {"id": "b", "link": "https://b.example"},
+        {"id": "c", "link": "https://c.example"},
+    ]
+    agg_dup = {"a": (1, 3), "b": (2, 2)}
+    ctx = {
+        "run_time": "2026-08-20 12:00:00 CST",
+        "today": today,
+        "sub_rows": [],
+        "sub_states": {},
+        "per_link": {},
+        "skipped": 0,
+        "merged_count": 0,
+        "geoip_source": "-",
+        "agg_rows": agg_rows,
+        "agg_windows": {
+            "a": [WindowEntry(ts="2026-08-20", ok=True, count=3)],
+            "b": [WindowEntry(ts="2026-08-20", ok=True, count=2)],
+        },
+        "agg_dup": agg_dup,
+        "output_files": {},
+    }
+    path = generate_report(cfg, ctx)
+    with open(path, encoding="utf-8") as f:
+        content = f.read()
+
+    assert "| id | 链接 | 成功率 | 重复率 | 最近 | 平均 |" in content
+    # 列序（split 去空元素后）：1id 2链接 3成功率 4重复率 5最近 6平均
+    line_a = next(l for l in content.splitlines() if "https://a.example" in l)
+    cells_a = [c.strip() for c in line_a.split("|")]
+    assert cells_a[4] == "33.3%"  # 1/3
+    line_b = next(l for l in content.splitlines() if "https://b.example" in l)
+    cells_b = [c.strip() for c in line_b.split("|")]
+    assert cells_b[4] == "100.0%"  # 2/2
+    # 本轮未拉取（无 agg_dup 数据）→ "-"
+    line_c = next(l for l in content.splitlines() if "https://c.example" in l)
+    cells_c = [c.strip() for c in line_c.split("|")]
+    assert cells_c[4] == "-"
