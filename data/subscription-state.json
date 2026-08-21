@@ -47,11 +47,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -101,11 +106,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -155,11 +165,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -209,11 +224,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -263,11 +283,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -317,11 +342,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -371,11 +401,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -425,11 +460,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -479,11 +519,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -518,6 +563,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 623
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 614
         },
         {
           "ts": "2026-08-21",
@@ -587,6 +637,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -630,6 +685,11 @@
         {
           "ts": "2026-08-21",
           "ok": false,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
           "count": 0
         },
         {
@@ -695,6 +755,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -744,6 +809,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 378
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 465
         },
         {
           "ts": "2026-08-21",
@@ -803,6 +873,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -852,6 +927,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 223
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         },
         {
           "ts": "2026-08-21",
@@ -911,6 +991,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -965,6 +1050,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -1002,6 +1092,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -1073,6 +1168,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 78
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 78
         }
       ],
       "consecutive_failures": 0,
@@ -1110,6 +1210,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -1210,11 +1315,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -1264,11 +1374,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -1318,11 +1433,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -1372,11 +1492,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -1426,11 +1551,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -1480,11 +1610,16 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 3,
-      "cooldown_count": 0,
-      "cooldown_until": null,
+      "consecutive_failures": 0,
+      "cooldown_count": 1,
+      "cooldown_until": "2026-08-24",
       "disabled": false
     },
     {
@@ -1517,6 +1652,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -1588,6 +1728,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -1642,6 +1787,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 272
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 272
         }
       ],
       "consecutive_failures": 0,
@@ -1679,6 +1829,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -1750,6 +1905,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -1804,9 +1964,14 @@
           "ts": "2026-08-21",
           "ok": false,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": false,
+          "count": 0
         }
       ],
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "cooldown_count": 0,
       "cooldown_until": null,
       "disabled": false
@@ -1858,6 +2023,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 146
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 146
         }
       ],
       "consecutive_failures": 0,
@@ -1895,6 +2065,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 46
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 46
         },
@@ -1966,6 +2141,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 26
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 26
         }
       ],
       "consecutive_failures": 0,
@@ -2003,6 +2183,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 1
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 1
         },
@@ -2074,6 +2259,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -2111,6 +2301,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 7
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 7
         },
@@ -2182,6 +2377,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 3
         }
       ],
       "consecutive_failures": 0,
@@ -2219,6 +2419,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -2290,6 +2495,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 3
         }
       ],
       "consecutive_failures": 0,
@@ -2327,6 +2537,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 3
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 3
         },
@@ -2398,6 +2613,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 3
         }
       ],
       "consecutive_failures": 0,
@@ -2435,6 +2655,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 3
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 3
         },
@@ -2506,6 +2731,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -2555,6 +2785,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 4080
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 4017
         },
         {
           "ts": "2026-08-21",
@@ -2614,6 +2849,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 6441
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 6441
         }
       ],
       "consecutive_failures": 0,
@@ -2651,6 +2891,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -2722,6 +2967,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 109
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 109
         }
       ],
       "consecutive_failures": 0,
@@ -2771,6 +3021,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 39
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 44
         },
         {
           "ts": "2026-08-21",
@@ -2830,6 +3085,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 6
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 6
         }
       ],
       "consecutive_failures": 0,
@@ -2874,6 +3134,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 11
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 10
         },
         {
           "ts": "2026-08-21",
@@ -2938,6 +3203,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 1137
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 1137
         }
       ],
       "consecutive_failures": 0,
@@ -2992,6 +3262,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 27
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 27
         }
       ],
       "consecutive_failures": 0,
@@ -3029,6 +3304,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 12
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 12
         },
@@ -3100,6 +3380,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 127
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 127
         }
       ],
       "consecutive_failures": 0,
@@ -3149,6 +3434,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 2
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 5
         },
         {
           "ts": "2026-08-21",
@@ -3237,6 +3527,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 225
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 225
         }
       ],
       "consecutive_failures": 0,
@@ -3274,6 +3569,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 226
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 226
         },
@@ -3345,6 +3645,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 16
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 16
         }
       ],
       "consecutive_failures": 0,
@@ -3399,6 +3704,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 2
         }
       ],
       "consecutive_failures": 0,
@@ -3453,6 +3763,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 2
         }
       ],
       "consecutive_failures": 0,
@@ -3490,6 +3805,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -3561,6 +3881,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -3598,6 +3923,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 181
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 181
         },
@@ -3669,6 +3999,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -3706,6 +4041,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -3777,6 +4117,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -3814,6 +4159,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 181
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 181
         },
@@ -3885,6 +4235,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -3939,6 +4294,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 16
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 16
         }
       ],
       "consecutive_failures": 0,
@@ -3976,6 +4336,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 5
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 5
         },
@@ -4047,6 +4412,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -4101,6 +4471,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 1558
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 1541
         }
       ],
       "consecutive_failures": 0,
@@ -4138,6 +4513,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 15
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 15
         },
@@ -4209,6 +4589,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 6
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 6
         }
       ],
       "consecutive_failures": 0,
@@ -4246,6 +4631,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 6
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 6
         },
@@ -4317,6 +4707,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 31
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 29
         }
       ],
       "consecutive_failures": 0,
@@ -4354,6 +4749,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -4425,6 +4825,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -4462,6 +4867,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 352
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 352
         },
@@ -4533,6 +4943,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -4570,6 +4985,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -4641,6 +5061,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 418
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 418
         }
       ],
       "consecutive_failures": 0,
@@ -4678,6 +5103,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -4749,6 +5179,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -4803,6 +5238,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 120
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 125
         }
       ],
       "consecutive_failures": 0,
@@ -4840,6 +5280,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -4911,6 +5356,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 78
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 78
         }
       ],
       "consecutive_failures": 0,
@@ -4948,6 +5398,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -5019,6 +5474,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 10288
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 10354
         }
       ],
       "consecutive_failures": 0,
@@ -5056,6 +5516,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -5127,6 +5592,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -5171,6 +5641,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 579
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 578
         },
         {
           "ts": "2026-08-21",
@@ -5293,6 +5768,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 7
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 7
         }
       ],
       "consecutive_failures": 0,
@@ -5330,6 +5810,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 9
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 9
         },
@@ -5401,6 +5886,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -5438,6 +5928,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 46
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 46
         },
@@ -5509,6 +6004,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 2
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 2
         }
       ],
       "consecutive_failures": 0,
@@ -5553,6 +6053,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 4
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 2
         },
         {
           "ts": "2026-08-21",
@@ -5617,6 +6122,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 42
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 42
         }
       ],
       "consecutive_failures": 0,
@@ -5661,6 +6171,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 58
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 48
         },
         {
           "ts": "2026-08-21",
@@ -5725,6 +6240,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 2
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 2
         }
       ],
       "consecutive_failures": 0,
@@ -5769,6 +6289,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 54
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 42
         },
         {
           "ts": "2026-08-21",
@@ -5833,6 +6358,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 48
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 48
         }
       ],
       "consecutive_failures": 0,
@@ -5882,6 +6412,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 4
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 6
         },
         {
           "ts": "2026-08-21",
@@ -6028,6 +6563,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 155
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 190
         }
       ],
       "consecutive_failures": 0,
@@ -6082,6 +6622,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 1544
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 1845
         }
       ],
       "consecutive_failures": 0,
@@ -6119,6 +6664,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -6190,6 +6740,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 356
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 357
         }
       ],
       "consecutive_failures": 0,
@@ -6229,6 +6784,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 4
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 3
         },
         {
           "ts": "2026-08-21",
@@ -6298,6 +6858,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 356
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 357
         }
       ],
       "consecutive_failures": 0,
@@ -6335,6 +6900,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 3
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 3
         },
@@ -6406,6 +6976,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 8
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 8
         }
       ],
       "consecutive_failures": 0,
@@ -6443,6 +7018,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 8
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 8
         },
@@ -6514,6 +7094,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 6450
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 6450
         }
       ],
       "consecutive_failures": 0,
@@ -6551,6 +7136,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -6622,6 +7212,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -6659,6 +7254,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 14
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 14
         },
@@ -6730,6 +7330,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 1
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 1
         }
       ],
       "consecutive_failures": 0,
@@ -6779,6 +7384,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 15
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 14
         },
         {
           "ts": "2026-08-21",
@@ -6838,6 +7448,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 2
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 2
         }
       ],
       "consecutive_failures": 0,
@@ -6892,6 +7507,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 14
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 14
         }
       ],
       "consecutive_failures": 0,
@@ -6929,6 +7549,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -7000,6 +7625,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -7054,6 +7684,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 3064
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 3064
         }
       ],
       "consecutive_failures": 0,
@@ -7091,6 +7726,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 2260
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 2260
         },
@@ -7162,6 +7802,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 1939
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 1939
         }
       ],
       "consecutive_failures": 0,
@@ -7199,6 +7844,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -7270,6 +7920,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -7324,6 +7979,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 8
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 8
         }
       ],
       "consecutive_failures": 0,
@@ -7361,6 +8021,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -7432,6 +8097,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 2
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 2
         }
       ],
       "consecutive_failures": 0,
@@ -7469,6 +8139,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 6
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 6
         },
@@ -7540,6 +8215,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 105
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 105
         }
       ],
       "consecutive_failures": 0,
@@ -7577,6 +8257,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 15
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 15
         },
@@ -7648,6 +8333,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 342
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 342
         }
       ],
       "consecutive_failures": 0,
@@ -7685,6 +8375,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -7756,6 +8451,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -7793,6 +8493,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -7864,6 +8569,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 56
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 56
         }
       ],
       "consecutive_failures": 0,
@@ -7901,6 +8611,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 199
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 199
         },
@@ -7972,6 +8687,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -8009,6 +8729,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 4
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 4
         },
@@ -8080,6 +8805,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 3
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 3
         }
       ],
       "consecutive_failures": 0,
@@ -8117,6 +8847,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -8188,6 +8923,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 0
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 0
         }
       ],
       "consecutive_failures": 0,
@@ -8225,6 +8965,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 24
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 24
         },
@@ -8296,6 +9041,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 1443
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 1443
         }
       ],
       "consecutive_failures": 0,
@@ -8333,6 +9083,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 149
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 149
         },
@@ -8404,6 +9159,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 16
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 16
         }
       ],
       "consecutive_failures": 0,
@@ -8441,6 +9201,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 4
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 4
         },
@@ -8512,6 +9277,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 6
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 6
         }
       ],
       "consecutive_failures": 0,
@@ -8549,6 +9319,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 17
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 17
         },
@@ -8620,6 +9395,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 24
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 24
         }
       ],
       "consecutive_failures": 0,
@@ -8664,6 +9444,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 15
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 6
         },
         {
           "ts": "2026-08-21",
@@ -8728,6 +9513,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 79
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 71
         }
       ],
       "consecutive_failures": 0,
@@ -8782,6 +9572,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 52
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 43
         }
       ],
       "consecutive_failures": 0,
@@ -8819,6 +9614,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 7
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 7
         },
@@ -8890,6 +9690,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 1
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 1
         }
       ],
       "consecutive_failures": 0,
@@ -8927,6 +9732,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 2143
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 2143
         },
@@ -8998,6 +9808,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 2141
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 2141
         }
       ],
       "consecutive_failures": 0,
@@ -9035,6 +9850,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -9106,6 +9926,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 2
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 2
         }
       ],
       "consecutive_failures": 0,
@@ -9155,6 +9980,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 76
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 75
         },
         {
           "ts": "2026-08-21",
@@ -9243,6 +10073,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 7
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 7
         }
       ],
       "consecutive_failures": 0,
@@ -9280,6 +10115,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 0
         },
@@ -9351,6 +10191,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 10
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 10
         }
       ],
       "consecutive_failures": 0,
@@ -9390,6 +10235,11 @@
         },
         {
           "ts": "2026-08-20",
+          "ok": true,
+          "count": 12
+        },
+        {
+          "ts": "2026-08-21",
           "ok": true,
           "count": 12
         },
@@ -9457,6 +10307,11 @@
           "ts": "2026-08-21",
           "ok": true,
           "count": 17
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 17
         }
       ]
     },
@@ -9492,6 +10347,11 @@
           "ts": "2026-08-20",
           "ok": true,
           "count": 18
+        },
+        {
+          "ts": "2026-08-21",
+          "ok": true,
+          "count": 20
         },
         {
           "ts": "2026-08-21",
