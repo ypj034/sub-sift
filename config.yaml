@@ -1,0 +1,130 @@
+# ============================================================
+# sub-sift - 订阅质量管理器 配置文件
+# schema_version 用于校验配置格式，请勿修改
+# ============================================================
+schema_version: 1
+
+# 基准时区（模板占位符日期填充、状态机时间戳、报告时间均使用此时区）
+timezone: "Asia/Shanghai"
+
+# ============================================================
+# 拉取设置
+# ============================================================
+fetcher:
+  concurrency: 5        # 并发拉取订阅的线程数
+  timeout_sec: 20       # 单个订阅拉取超时（秒），建议 15-30
+  # 模板占位符白名单：订阅链接中允许出现的占位符
+  # 各占位符按当天日期（timezone）分别填充：
+  #   {Y}=2026  {m}=8  {mm}=08  {d}=20  {dd}=20  {Ymd}=20260820
+  #   {ymd}=20260820（{Ymd} 的小写变体，如 v2rayfree 类源常用 v{ymd}1）
+  # 链接中出现但未列入白名单的占位符会导致启动报错（预校验）
+  # 身份与访问分离：含占位符的原串作为链接身份用于去重/统计，
+  # 填充后的完整 URL 仅用于本次访问拉取
+  # 例: https://xxx/uploads/{Y}/{mm}/0-{Ymd}.yaml
+  template_placeholders: ["{Ymd}", "{Y}", "{mm}", "{ymd}"]
+
+# ============================================================
+# 统计设置
+# ============================================================
+stats:
+  window_size: 30       # 近 N 次滚动窗口大小；pass_rate 的分母为实际执行次数
+
+# ============================================================
+# 状态机（仅对主清单订阅链接生效；聚合源无状态机）
+# 流程：连续失败 cooldown_failures 次 → 冷却 cooldown_days[0] 天
+#       → 冷却结束后再连续失败 cooldown_failures 次 → 冷却 cooldown_days[1] 天
+#       → 再连续失败 disable_failures 次 → 永久禁用
+# ============================================================
+state_machine:
+  cooldown_failures: 4      # 触发冷却所需的连续失败次数
+  cooldown_days: [3, 7]     # 冷却天数分级：第一次冷却 3 天，第二次冷却 7 天
+  disable_failures: 4       # 冷却结束后再连续失败该次数 → 永久禁用
+
+# ============================================================
+# 规则配置
+# 顺序即执行顺序（短路执行：被 REJECT 后不再执行后续规则）
+# 筛选规则全局统一，无订阅级覆盖
+# ============================================================
+rules:
+  protocol_allowlist:
+    enabled: true
+    # 允许的协议白名单；同时作为 subscriptions.csv 的协议分布列数据源
+    # 可选值: vless, vmess, trojan, ss, hysteria2
+    allow: [vless, trojan, vmess]
+
+  validity_target:
+    enabled: true     # server/port 有效性：空地址、内网/保留 IP、RFC 保留域名、非法端口
+
+  validity_fields:
+    enabled: true     # 协议字段格式有效性：uuid 格式、password 占位、method 空串
+
+  server_denylist:
+    enabled: true
+    # server 命中公共测试/基准服务或已知投毒域名 → REJECT（原因 fake_server）
+    # 内置清单分三段（见 modules/rules/server_denylist.py）：
+    #   A1-1 测速站（注册域末两段匹配）: speedtest.net / fast.com 等
+    #   A1-2 连通性检测（完整 host 精确匹配）: speed.cloudflare.com 等
+    #   A2 已知投毒域名（注册域末两段匹配）: poki-pakipon.ir 等
+    # 以下为可选追加项，仅追加不覆盖内置清单：
+    extra_domains: []   # 追加注册域（末两段精确匹配，含任意子域）
+    extra_hosts: []     # 追加完整 host（精确匹配，用于知名服务的特定子域）
+
+  suspicious_pattern:
+    enabled: true
+    # 形态启发式识别结构投毒节点（原因 heuristic_poison）：
+    # server 长随机域名(>=20字符) + sni 命中知名站 + 端口非标准 三条件同时命中 → REJECT
+    # 覆盖"换域名"的新投毒（不在 denylist 中的随机注册域）
+    extra_famous_hosts: []  # 追加 sni 知名站（按注册域匹配；内置 google/apple/yahoo/deepl 等）
+    extra_std_ports: []     # 追加标准端口（命中即不触发端口条件，可降低误伤）
+
+  security_vmess:
+    enabled: true     # vmess 安全：cipher 需在安全集合、必须开启 TLS
+
+  security_vless:
+    enabled: true     # vless 安全：需 TLS 或 Reality、allowInsecure 必须为 false
+
+  security_trojan:
+    enabled: true     # trojan 安全：必须开启 TLS、allowInsecure 必须为 false
+
+  security_ss:
+    enabled: true     # ss 安全：method 需在安全集合
+
+  security_hysteria2:
+    enabled: true     # hysteria2 安全：insecure 必须为 false
+
+  junk_keywords:
+    enabled: true
+    # 垃圾关键词，匹配节点名 name 与服务器地址 server；可按需增删
+    # 注意保守使用，避免误伤："机场""专线""IPLC""BGP" 等线路术语不应加入
+    # 留空 [] = 不过滤（默认）；不要写 [null]，YAML 会把它解析成 None，规则层会忽略
+    # keywords: [free, test, demo, example, invalid, null, undefined, 免费, 测试, 演示, 广告, 优惠, 官网, 购买, 试用]
+    keywords: []
+
+  region_allowlist:
+    enabled: true
+    # 允许的地区白名单；同时作为 subscriptions.csv 的地区分布列数据源
+    # 可选值: 任意 ISO 3166-1 alpha-2 地区代码，如 JP, KR, HK, SG, US, TW
+    # 域名型服务器自动跳过地区判定，归入 domain 列；
+    # IP 型服务器未命中白名单地区 → 规则层直接 REJECT（地区过滤），无 other_ip 兜底列
+    allow: [JP, KR, HK, SG, US, TW]
+
+# ============================================================
+# 输出设置
+# ============================================================
+output:
+  # 订阅输出格式，可选值: clash, v2ray, plain（可多选，逗号分隔）
+  # clash = Clash YAML 格式；v2ray = base64 编码的节点链接列表；
+  # plain = 明文节点链接列表（每行一个 vless:// 等链接，不做 base64）
+  formats: [plain, v2ray]
+  # 输出目录（相对项目根目录），输出文件与 report.md 均会 commit 回 git
+  directory: output
+
+# ============================================================
+# GeoIP 数据库
+# ============================================================
+geo:
+  # mmdb 下载地址（国家地区判定库，无需 key）
+  # 默认: Loyalsoldier/geoip 的 Country.mmdb（标准国家码，GitHub 固定 latest 直链）
+  # 留空 = 禁用 mmdb 自动更新（仅用内置表兜底，精度有限）
+  # 本地已有 data/GeoLite2-Country.mmdb 时始终优先使用，无需更新检查
+  mmdb_url: "https://github.com/Loyalsoldier/geoip/releases/latest/download/Country.mmdb"

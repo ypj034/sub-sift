@@ -1,0 +1,5 @@
+PyYAML>=6.0,<7.0
+# mmdb 地区数据库读取（GeoIP 判定主数据源）
+maxminddb>=2.0,<3.0
+# Windows 本地运行需要（zoneinfo 时区库）；Linux/macOS/GitHub Actions 自带
+tzdata>=2024.1
