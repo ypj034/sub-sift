@@ -1,0 +1,14 @@
+.git
+.github/
+.gitignore
+__pycache__/
+*.py[cod]
+*.pyc
+.pytest_cache/
+.coverage
+tests/
+docs/
+*.md
+_runs.json
+data/*.mmdb
+data/*.mmdb.meta
