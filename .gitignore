@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 测试与工具
+.pytest_cache/
+.coverage
+
+# 编辑器
+.idea/
+.vscode/
+*.swp
+
+# 环境
+.env
+
+# 运行时数据（mmdb 由 --update-geo 下载，不进 git；CSV/state 会 commit 回 git）
+data/*.mmdb
+data/*.mmdb.meta
