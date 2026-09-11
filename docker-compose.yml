@@ -1,0 +1,45 @@
+# sub-sift 本地 Docker 模式编排
+#
+# 用法：
+#   1. 复制同目录 .env.example 为 .env，填入 GIT_PUSH_TOKEN / WEB_TOKEN
+#   2. docker compose up -d
+#   3. 浏览器打开 http://<服务器IP>:8080
+#
+# 数据以 GitHub 上的为准：容器每次同步都会丢弃本地 data/ 改动后重新拉取，
+# 本地运行只更新 output/（供局域网订阅），不回写 git。
+services:
+  sub-sift:
+    image: ghcr.io/ypj034/sub-sift:latest
+    # 需要本地构建时，注释掉上面的 image、启用下面两行：
+    # build:
+    #   context: .
+    #   dockerfile: docker/Dockerfile
+    container_name: sub-sift
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - sub-sift-data:/app/data
+      - sub-sift-output:/app/output
+    environment:
+      TZ: UTC
+      # 仓库地址；公开仓库无需凭据即可 fetch，仅编辑回推需要 PAT
+      REPO_URL: https://github.com/ypj034/sub-sift.git
+      REPO_BRANCH: main
+      # 编辑回推 GitHub 的 PAT（fine-grained，仅 contents:write + actions:write）
+      GIT_PUSH_TOKEN: ${GIT_PUSH_TOKEN:-}
+      # web 管理端登录口令；留空则管理端免鉴权
+      WEB_TOKEN: ${WEB_TOKEN:-}
+      # 编辑提交是否触发 Actions；false 则提交信息加 [skip ci]
+      EDIT_TRIGGER_ACTIONS: ${EDIT_TRIGGER_ACTIONS:-true}
+      # 同步：按上次快照时间 + 间隔推算下次窗口
+      # 0 = 自动跟随 ci.yml 的 schedule.cron；填数字则手动指定
+      SYNC_INTERVAL_HOURS: ${SYNC_INTERVAL_HOURS:-0}
+      SYNC_BUFFER_MINUTES: ${SYNC_BUFFER_MINUTES:-5}
+      SYNC_POLL_SECONDS: ${SYNC_POLL_SECONDS:-180}
+      SYNC_MAX_WAIT_MINUTES: ${SYNC_MAX_WAIT_MINUTES:-120}
+      WEB_PORT: ${WEB_PORT:-8080}
+
+volumes:
+  sub-sift-data:
+  sub-sift-output:
